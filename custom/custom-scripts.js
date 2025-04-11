@@ -57,11 +57,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const firstSlide = document.querySelector('.slides > section:first-child');
     const lastSlide = document.querySelector('.slides > section:last-child');
     
-    if (firstSlide) {
-        const bgDiv = document.createElement('div');
-        bgDiv.className = 'first-last-slide-background';
-        firstSlide.appendChild(bgDiv);
-    }
+    // if (firstSlide) {
+    //     const bgDiv = document.createElement('div');
+    //     bgDiv.className = 'first-last-slide-background';
+    //     firstSlide.appendChild(bgDiv);
+    // }
     
     if (lastSlide) {
         const bgDiv = document.createElement('div');
