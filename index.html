@@ -4,23 +4,14 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Tutorials on Reveal.js SNUPHEL template</title>
-
-		<!-- Force HTTPS -->
-		<script>
-			if (window.location.protocol !== 'https:' && 
-				window.location.hostname !== 'localhost' && 
-				!window.location.hostname.startsWith('127.0.0.') && 
-				!window.location.hostname.startsWith('192.168.')) {
-				window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-			}
-		</script>
+		<title>Reveal.js SNUPHEL Template</title>
 
 		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+		<!-- Core Reveal.js styles -->
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/white.css">
@@ -28,377 +19,16 @@
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 		
-		<style>
-			body {
-				background-color: #f5f5f5;
-			}
-			.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
-				color: #2a76dd;
-				font-family: 'Montserrat', sans-serif;
-				font-weight: 600;
-				text-transform: none;
-			}
-			.reveal h1 {
-				font-size: 1.6em;
-				margin-bottom: 0.5em;
-			}
-			.reveal h2 {
-				font-size: 1.3em;
-				margin-bottom: 0.5em;
-			}
-			.reveal h3 {
-				font-size: 1em;
-				margin-bottom: 0.3em;
-			}
-			.reveal p, .reveal li {
-				font-family: 'Montserrat', sans-serif;
-				font-size: 0.7em;
-				line-height: 1.5;
-			}
-			.reveal ul, .reveal ol {
-				display: block;
-				margin-left: 20px;
-			}
-			.reveal li {
-				margin-bottom: 0.6em;
-			}
-			.reveal .slides {
-				text-align: left;
-			}
-			.reveal .slides section {
-				padding: 40px;
-				height: 100%;
-				box-sizing: border-box;
-				display: flex;
-				flex-direction: column;
-				justify-content: flex-start;
-
-			}
-			.reveal .slides section.balance-slide {
-				justify-content: space-between; 
-			}
-			.reveal .slides section.balance-slide .content-wrapper {
-				margin-top: 60px;
-			}
-			.reveal .slides section.grid-slide {
-				display: grid !important;
-				place-items: center;
-				justify-content: center;
-				padding: 60px;
-			}
-			.reveal img {
-				border: none !important;
-				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
-				max-height: 450px;
-				display: block;
-				margin: 0 auto;
-				object-fit: contain;
-				max-width: 100%;
-				transition: transform 0.3s ease;
-			}
-			.reveal img:hover {
-				transform: scale(1.02);
-			}
-			.container {
-				display: flex;
-				justify-content: space-between;
-				align-items: flex-start;
-				width: 100%;
-				height: 90%;
-				gap: 20px;
-			}
-			.col {
-				flex: 1;
-				padding: 10px;
-				max-width: 48%;
-				height: 100%;
-			}
-			.smalltext {
-				font-size: 0.65em;
-			}
-			.citation {
-				font-size: 0.6em;
-				font-style: italic;
-				color: #666;
-				margin-top: 10px;
-				margin-bottom: 15px;
-			}
-			.reveal ul ul {
-				font-size: 1.2em;
-			}
-			.author-info {
-				font-size: 0.8em;
-				margin-top: 15px;
-				margin-bottom: 20px;
-				font-style: italic;
-				font-weight: bold;
-			}
-			.img-caption {
-				font-size: 0.5em !important;
-				text-align: center;
-				color: #555;
-				margin-top: 5px;
-			}
-			.bg-header {
-				background-color: rgba(42, 118, 221, 0.1);
-				padding: 10px 15px;
-				border-left: 4px solid #2a76dd;
-				margin-bottom: 20px;
-				display: inline-block;
-				border-radius: 0 4px 4px 0;
-			}
-			.highlight {
-				color: #2a76dd;
-				font-weight: bold;
-			}
-			.text-center {
-				text-align: center;
-			}
-			.logo {
-				position: absolute;
-				bottom: 15px;
-				right: 50px;
-				max-width: 300px!important;
-				height: auto;
-				opacity: 1;
-				z-index: 100;
-				box-shadow: none !important;
-				-webkit-box-shadow: none !important;
-				transition: none !important;
-				user-select: none;
-				-webkit-user-select: none;
-				-moz-user-select: none;
-				-ms-user-select: none;
-				pointer-events: none;
-				font-family: 'Lato', sans-serif!important;
-			}
-			.logo:hover {
-				transform: none !important;
-				box-shadow: none !important;
-				-webkit-box-shadow: none !important;
-			}
-			.reveal img.logo {
-				box-shadow: none !important;
-				-webkit-box-shadow: none !important;
-			}
-			.data-table {
-				font-size: 0.7em;
-				width: 100%;
-				border-collapse: collapse;
-				margin: 10px 0;
-				overflow-x: hidden;
-				box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-			}
-			.data-table th {
-				background-color: rgba(42, 118, 221, 0.2);
-				color: #333;
-				font-weight: 600;
-				padding: 12px !important;
-			}
-			.data-table th, .data-table td {
-				padding: 10px;
-				border: 1px solid #ddd;
-				text-align: center;
-			}
-			.data-table td {
-				padding: 10px !important;
-			}
-			.data-table tr:nth-child(even) {
-				background-color: rgba(0,0,0,0.03);
-			}
-			.data-table tr:hover {
-				background-color: rgba(42, 118, 221, 0.05);
-			}
-			.data-table .highlight-cell {
-				background-color: rgba(42, 118, 221, 0.15);
-				font-weight: bold;
-			}
-			.image-gallery {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: center;
-				gap: 15px;
-				margin-top: 20px;
-			}
-			.image-gallery img {
-				max-height: 180px;
-				width: auto;
-				box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4) !important;
-				border-radius: 4px;
-				transition: transform 0.3s ease, box-shadow 0.3s ease;
-			}
-			.image-gallery img:hover {
-				transform: translateY(-5px);
-				box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5) !important;
-			}
-			.bg-image {
-				position: absolute;
-				bottom: 20px;
-				right: 20px;
-				max-width: 200px;
-				border-radius: 5px;
-				opacity: 0.85;
-				mask-image: radial-gradient(ellipse 80% 70% at 20% 70%, transparent, black);
-				-webkit-mask-image: radial-gradient(ellipse 80% 70% at 20% 70%, transparent, black);
-			}
-			.key-word {
-				color: #2a76dd;
-				font-weight: bold;
-			}
-			.fragment.highlight-blue {
-				opacity: 1;
-				visibility: inherit;
-			}
-			.fragment.highlight-blue.visible {
-				font-weight: bold;
-				color: #2a76dd;
-			}
-			.highlight-text {
-				background-color: rgba(42, 118, 221, 0.1);
-				padding: 2px 5px;
-				border-radius: 3px;
-				font-weight: bold;
-			}
-			.slide-citation {
-				position: absolute;
-				bottom: 40px;
-				left: 60px;
-				font-size: 0.5em;
-				opacity: 0.6;
-				font-style: italic;
-				max-width: 1000px;
-				text-align: right;
-				color: #555;
-			}
-			/* Before-After Comparison Styles */
-			.bal-container-small {
-				position: relative;
-				width: 979px;
-				height: 546px;
-				margin: 0 auto;
-				overflow: hidden;
-				--position: 50%;
-				border-radius: 0.5rem;
-				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-			}
-			.image-container {
-				position: relative;
-				width: 100%;
-				height: 100%;
-				overflow: hidden;
-			}
-			.slider-image {
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				object-position: left;
-				margin: 0;
-				padding: 0;
-				max-width: none;
-				max-height: none;
-				z-index: 1;
-			}
-			.image-before {
-				position: absolute;
-				width: var(--position);
-				height: 100%;
-				overflow: hidden;
-				top: 0;
-				left: 0;
-				z-index: 2;
-			}
-			.image-before img {
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				object-position: left;
-				margin: 0;
-				padding: 0;
-				max-width: none;
-				max-height: none;
-			}
-			.slider {
-				position: absolute;
-				inset: 0;
-				cursor: pointer;
-				opacity: 0;
-				width: 100%;
-				height: 100%;
-				z-index: 10;
-				margin: 0; /* Override reveal.js margins */
-			}
-			.slider:focus-visible ~ .slider-button {
-				outline: 3px solid #2a76dd;
-				outline-offset: 3px;
-			}
-			.slider-line {
-				position: absolute;
-				inset: 0;
-				width: 4px;
-				height: 100%;
-				background-color: #2a76dd;
-				left: var(--position);
-				transform: translateX(-50%);
-				pointer-events: none;
-				z-index: 5;
-			}
-			.slider-button {
-				position: absolute;
-				background-color: #2a76dd;
-				color: white;
-				width: 30px;
-				height: 30px;
-				border-radius: 50%;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				top: 50%;
-				left: var(--position);
-				transform: translate(-50%, -50%);
-				pointer-events: none;
-				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-				z-index: 6;
-			}
-			.slider-button::before, 
-			.slider-button::after {
-				content: "";
-				position: absolute;
-				width: 0;
-				height: 0;
-				border: 6px solid transparent;
-			}
-			.slider-button::before {
-				border-right: 6px solid white;
-				left: -5px;
-			}
-			.slider-button::after {
-				border-left: 6px solid white;
-				right: -5px;
-			}
-			.image-label {
-				position: absolute;
-				top: 10px;
-				padding: 5px 10px;
-				background: rgba(0, 0, 0, 0.5);
-				color: white;
-				font-size: 0.8em;
-				border-radius: 3px;
-				z-index: 5;
-			}
-			.label-before {
-				left: 10px;
-			}
-			.label-after {
-				right: 10px;
-			}
-		</style>
+		<!-- Custom styles -->
+		<link rel="stylesheet" href="custom/custom-styles.css">
+		
+		<!-- HTTPS redirect and presenter info script -->
+		<script src="custom/custom-scripts.js"></script>
 	</head>
 	<body>
 		<div class="reveal"">
 			<div class="slides">
-				<!-- 1. Title and Introduction -->
+				<!-- 1. Title Slide -->
 				<section data-background="resources/images/snuphel-2024.png" data-background-opacity="0.4" data-background-size="cover">
 					<div style="background-color: rgba(255, 255, 255, 0.7); padding: 30px; border-radius: 10px; max-width: 90%; margin: 0 auto;">
 						<h1><strong>Reveal.js</strong></h1>
@@ -406,7 +36,7 @@
 						<p class="author-info"><span class="presenter-name"></span><br>
 						Department of <span class="presenter-dept"></span><br>
 						<span class="presenter-univ"></span></p>
-						<p class="smalltext">A design with &#10084;&#65039; for</p>
+						<p class="smalltext">A design made with &#10084;&#65039; for</p>
 						<p class="citation">SNUPHEL Members</p>
 						<p class="smalltext">Today: <span class="presentation-date"></span></p>
 						<p class="smalltext">Session: <span class="session-name"></p>
@@ -416,34 +46,35 @@
 					</aside>
 				</section>
 
-				<!-- Add Table of Contents slide -->
+				<!-- Table of Contents slide -->
 				<section>
 					<h2 class="bg-header">Presentation Outline</h2>
 					<ol>
-						<li><a href="#/2"><strong>Motivation</strong></a> - What is this and why should you care?</li>
-						<li><a href="#/4"><strong>Features</strong></a> - What can this presentation do?</li>
-						<li><a href="#/4"><strong>Problem Statement</strong></a> - A pipeline for full deployment of a fancy presentation</li>
-						<li><a href="#/6"><strong>Approach</strong></a> - Techinical Details</li>
-						<li><a href="#/13"><strong>Result</strong></a> - Out of the box template!</li>
-						<li><a href="#/17"><strong>Contributions</strong></a> - what I have done.</li>
-						<li><a href="#/19"><strong>Discussion</strong></a> - Why is looking fancy important?</li>
+						<li><a href="#/2"><strong>Motivation</strong></a> - Why choose Reveal.js for academic presentations?</li>
+						<li><a href="#/3"><strong>Features</strong></a> - What makes this template special?</li>
+						<li><a href="#/8"><strong>Development</strong></a> - How to create and customize your presentation</li>
+						<li><a href="#/12"><strong>Deployment</strong></a> - Publishing with GitHub & Cloudflare Pages</li>
+						<li><a href="#/16"><strong>Contributions</strong></a> - How this template was developed</li>
+						<li><a href="#/17"><strong>Discussion</strong></a> - Q&A and future directions</li>
 					</ol>
 					<aside class="notes">
-						This is our roadmap for today's presentation. 
+						This is our roadmap for today's presentation. We'll explore why Reveal.js is a great choice for academic presentations, what features make it stand out, how to develop your own presentations, and how to deploy them online.
 					</aside>
-					<div class="slide-citation">you can jump to any section by clicking on the section name</div>
+					<div class="slide-citation">Click on any section to jump directly to it</div>
 				</section>
 
-
+				<!-- 2. Motivation Section -->
 				<section>
 					<section>
 						<h2 class="bg-header">Motivation</h2>
 						<div class="container">
 							<div class="col">
 								<ul>
-									<li>Web-based content is flexible and easy to share</li>
-									<li>To make use of AI tools in an easier way</li>
-									<li>It looks <span class="fragment highlight-blue" data-fragment-index="1"><strong>cool</strong></span>.</li>
+									<li>Web-based content is <span class="highlight">flexible</span> and easy to share</li>
+									<li>Better <span class="highlight">integration with AI tools</span> like Claude and ChatGPT</li>
+									<li>Provides <span class="fragment highlight-blue" data-fragment-index="1"><strong>professional</strong></span> look for academic presentations</li>
+									<li>Easy to <span class="highlight">version control</span> with Git</li>
+									<li>Supports <span class="highlight">multimedia content</span> better than traditional tools</li>
 								</ul>
 							</div>
 							<div class="col">
@@ -451,101 +82,169 @@
 								<p class="img-caption">Reveal.js logo</p>
 							</div>
 						</div>
+						<aside class="notes">
+							Reveal.js offers numerous advantages over traditional presentation software, particularly in academic contexts where sharing, collaboration, and rich media support are crucial.
+						</aside>
 					</section>
 					
 					<section>
-						<h3>Limitations of Existing Methods</h3>
+						<h3>Comparison with Other Presentation Tools</h3>
 						<table class="data-table">
 							<thead>
 								<tr>
-									<th>Technology</th>
-									<th>Cost</th>
-									<th>Resolution</th>
-									<th>Color/Texture</th>
-									<th>Computation</th>
-									<th>Accessibility</th>
+									<th>Feature</th>
+									<th>PowerPoint</th>
+									<th>Google Slides</th>
+									<th>LaTeX Beamer</th>
+									<th>Reveal.js</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>Powerpoint</td>
-									<td class="highlight-cell">Low</td>
-									<td>High</td>
-									<td>High</td>
-									<td class="highlight-cell">Low</td>
-									<td class="highlight-cell">High</td>
+									<td>Cross-platform</td>
+									<td>Partial</td>
+									<td class="highlight-cell">Yes</td>
+									<td class="highlight-cell">Yes</td>
+									<td class="highlight-cell">Yes</td>
 								</tr>
 								<tr>
-									<td>Google Slides</td>
-									<td>High</td>
-									<td class="highlight-cell">High</td>
-									<td>Low</td>
-									<td>Medium</td>
-									<td>Low</td>
+									<td>Version Control</td>
+									<td>Limited</td>
+									<td>Limited</td>
+									<td class="highlight-cell">Good</td>
+									<td class="highlight-cell">Excellent</td>
 								</tr>
 								<tr>
-									<td>Notion</td>
-									<td>Medium</td>
-									<td>Medium</td>
-									<td>Medium</td>
-									<td>Medium</td>
-									<td>Medium</td>
+									<td>Web Publishing</td>
+									<td>Limited</td>
+									<td class="highlight-cell">Good</td>
+									<td>Limited</td>
+									<td class="highlight-cell">Excellent</td>
 								</tr>
 								<tr>
-									<td>Canvas-like</td>
-									<td class="highlight-cell">Low</td>
-									<td class="highlight-cell">High</td>
-									<td class="highlight-cell">High</td>
-									<td>Very High</td>
-									<td>Medium</td>
+									<td>Interactive Elements</td>
+									<td>Limited</td>
+									<td>Limited</td>
+									<td>Poor</td>
+									<td class="highlight-cell">Excellent</td>
 								</tr>
 								<tr>
-									<td class="highlight-cell">Reveal.js</td>
-									<td class="highlight-cell">Low</td>
-									<td class="highlight-cell">High</td>
-									<td class="highlight-cell">High</td>
-									<td class="highlight-cell">Medium</td>
-									<td class="highlight-cell">High</td>
+									<td>Customizability</td>
+									<td>Moderate</td>
+									<td>Limited</td>
+									<td class="highlight-cell">Good</td>
+									<td class="highlight-cell">Excellent</td>
 								</tr>
 							</tbody>
 						</table>
-						<p class="img-caption">Table 1: Comparison of different 3D reconstruction technologies</p>
+						<p class="img-caption">Comparison of presentation platforms for academic use</p>
+						<div class="slide-citation">
+							The table style is kind of ugly right? I know...
+						</div>
+						<aside class="notes">
+							While each platform has its strengths, Reveal.js excels in customizability, web publishing, and interactive elements - crucial for modern academic presentations.
+						</aside>
 					</section>
+				</section>
 
+				<!-- 3. Features Section -->
+				<section>
 					<section>
-						<h3>Presenter View </h3>
+						<h2 class="bg-header">Template Features</h2>
+						<ul>
+							<li><span class="highlight">Responsive design</span> - Works on all devices and screen sizes</li>
+							<li><span class="highlight">Modern typography</span> with Google Fonts</li>
+							<li><span class="highlight">Presenter notes</span> - Press 'S' to access</li>
+							<li><span class="highlight">Interactive elements</span> like image comparisons and code highlighting</li>
+							<li><span class="highlight">Easy customization</span> with CSS variables</li>
+							<li><span class="highlight">Flexible layouts</span> with grid and container components</li>
+						</ul>
+						<aside class="notes">
+							This template offers numerous features that make it ideal for academic presentations, from responsive design to presenter notes and interactive elements.
+						</aside>
+					</section>
+					
+					<section>
+						<h3>Presenter View</h3>
 						<div>
 							<div>
 								<ul>
-									<li>Press S to call up the <span class="fragment highlight-blue" data-fragment-index="1"><strong>Presenter View</strong></span></li>
-									<li>Comparison of global vs. local shooting methods</li>
+									<li>Press <span class="highlight">S</span> key to open presenter view</li>
+									<li>Shows current slide, next slide, and notes</li>
+									<li>Includes timer and speaker controls</li>
+									<li>Works across devices with presenter link</li>
 								</ul>
 							</div>	
-							<div class="slide-citation">3D Gaussian Splatting for Real-Time Radiance Field Rendering (2023)</div>
+							<img src="resources/images/presenter-view.jpg" alt="Presenter View Example">
+							<p class="img-caption">Example of Reveal.js presenter view</p>
+							<div class="slide-citation">Press 'S' during the presentation to try it</div>
 						</div>
+						<aside class="notes">
+							The presenter view is one of the most powerful features for speakers, providing a private view with notes, timers, and slide previews while the audience sees only the presentation.
+						</aside>
 					</section>
 
 					<section>
-						<h3>Iframe: a webpage in a webpage(this slide)</h3>
+						<h3>Interactive Code Examples</h3>
 						<div class="container">
 							<div class="col">
 								<ul>
-									<li>If you want to show a preview(?) of your/others' webpage:</li>
-									<li>looking at this code (Woops, another feature~)</li>
-									<pre><code data-line-numbers="3" class="html">
-&lt;div&gt;
-	&lt;iframe src="https://3dgs.phasheen.com" width="600" height="500" title="Web Preview"&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-</code></pre>
+									<li>Syntax highlighting for all programming languages</li>
+									<li>Line highlighting for focusing attention</li>
+									<li>Copy-paste functionality</li>
+									<li>Perfect for teaching and tutorials</li>
 								</ul>
 							</div>
 							<div class="col">
+								<pre><code data-line-numbers="3-5" class="javascript">
+// Initialize Reveal.js with options
+Reveal.initialize({
+  hash: true,
+  slideNumber: true,
+  progress: true,
+  // Transition style
+  transition: 'slide',
+  // More configuration options...
+  plugins: [ RevealMarkdown, RevealHighlight ]
+});
+</code></pre>
+								<p class="img-caption">Example of code highlighting with line numbers</p>
+							</div>
+						</div>
+						<aside class="notes">
+							Code highlighting is essential for technical presentations, and Reveal.js offers excellent support with line highlighting, allowing you to focus attention on specific parts of the code.
+						</aside>
+					</section>
+
+					<section>
+						<h3>Embedded Web Content</h3>
+						<div class="container">
+							<div class="col">
+								<ul>
+									<li>Embed any webpage with iframes</li>
+									<li>Perfect for demos and interactive content</li>
+									<li>Keeps your presentation self-contained</li>
+									<li>Great for showing tools, applications, or supplementary material</li>
+								</ul>
+								<pre><code class="html">
+&lt;iframe 
+  src="https://example.com" 
+  width="600" 
+  height="400"&gt;
+&lt;/iframe&gt;
+</code></pre>
+							</div>
+							<div class="col">
 								<div>
-									<iframe src="https://3dgs.phasheen.com" width="600" height="500" title="Web Preview"></iframe>
+									<iframe src="https://3dgs.phasheen.com" width="600" height="400" title="Web Preview"></iframe>
 								</div>
+								<p class="img-caption">Example of an embedded webpage</p>
 							</div>
 						</div>
 						<div class="slide-citation">https://3dgs.phasheen.com</div>
+						<aside class="notes">
+							Embedding web content directly in your slides is a powerful feature, allowing you to include interactive demos, websites, and web-based tools directly in your presentation.
+						</aside>
 					</section>
 					
 					<section>
@@ -565,52 +264,48 @@
 						</div>
 						<p class="img-caption">Ground truth VS 3DGS rendered novel view (2023)</p>
 						<div class="slide-citation">https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/</div>
+						<aside class="notes">
+							The image comparison slider is particularly useful for research presentations where you need to show before/after effects or compare different methods or results.
+						</aside>
 					</section>
 				</section>
 
+				<!-- 4. Development Section -->
 				<section>
 					<section>
-						<h2 class="bg-header">Problem Statement</h2>
-						<ul>
-							<li>Plants are inherently <strong>three-dimensional</strong>; 2D imaging has <span class="fragment highlight-blue" data-fragment-index="1">severe limitations</span></li>
-							<li><strong>High-cost</strong> of LiDAR systems limits accessibility</li>
-							<li>RGB-D sensors generate <span class="fragment highlight-blue" data-fragment-index="2">low-resolution point cloud data</span></li>
-							<li>Traditional 3D reconstructions lose high-resolution color and texture details</li>
-							<li>Neural Radiance Fields (NeRF) faces <strong>computational efficiency challenges</strong></li>
-							<li>3D Gaussian Splatting (3DGS) remains <span class="fragment highlight-blue" data-fragment-index="3">underexplored in agriculture</span></li>
-						</ul>
+						<h2 class="bg-header">Development</h2>
+						<div class="container">
+							<div class="col">
+								<h3>Setting Up Your Environment</h3>
+								<ul>
+									<li>Clone the template repository</li>
+									<li>Install dependencies with <code>npm install</code></li>
+									<li>Start the dev server with <code>npm start</code></li>
+									<li>Edit files in your preferred code editor</li>
+									<li>Changes appear instantly in browser</li>
+								</ul>
+							</div>
+							<div class="col">
+								<pre><code class="bash">
+# Clone the repository
+git clone https://github.com/username/revealjs-template
+
+# Navigate to the directory
+cd revealjs-template
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm start
+</code></pre>
+							</div>
+						</div>
 						<aside class="notes">
-							to make the deployment easier it took some time..
+							Setting up your development environment is straightforward. The template uses npm for package management and includes a development server that automatically refreshes as you make changes.
 						</aside>
 					</section>
 
-					<section>
-						<h3>Research Objectives</h3>
-						<ol>
-							<li>Reconstruct high-fidelity <span class="fragment highlight-blue" data-fragment-index="1"><strong>3D Gaussian Splatting (3DGS)</strong></span> models of individual cotton plants</li>
-							<li>Compare the performance of <span class="fragment highlight-blue" data-fragment-index="2"><strong>foundation model (SAM)</strong></span> and <span class="fragment highlight-blue" data-fragment-index="3"><strong>YOLOv11x</strong></span> in obtaining 2D instance masks from RGB images</li>
-							<li><strong>Segment</strong> bolls in the 3DGS model and cluster segmentation results from multiple views</li>
-							<li>Evaluate 3D boll mapping accuracy and extract phenotypic traits</li>
-						</ol>
-
-					</section>
-				</section>
-
-				<!-- 4. Approach: Data Collection & Preprocessing -->
-				<section>
-					<section>
-						<h2 class="bg-header">Approach</h2>
-						<div >
-							<h3>Creating Your First Reveal.js Presentation</h3>
-							<ul>
-								<li>Install dependencies with <code>npm install</code></li>
-								<li>Start the development server with <code>npm start</code></li>
-								<li>Edit index.html to create your slides</li>
-								<li>Use section tags to create new slides</li>
-								<li>Nested sections create vertical slides</li>
-							</ul>
-						</div>
-					</section>
 					<section>
 						<h3>Basic Slide Structure</h3>
 						<div class="container">
@@ -635,116 +330,38 @@
 &lt;/section&gt;</code></pre>
 							</div>
 						</div>
+						<aside class="notes">
+							The basic structure of a Reveal.js presentation is simple: each slide is a section element, and you can create vertical slides by nesting sections within each other.
+						</aside>
 					</section>	
 
 					<section>
-						<h3>Configuration Options</h3>
+						<h3>Customizing Your Presentation</h3>
 						<div class="container">
 							<div class="col">
 								<ul>
-									<li>Initialize with options:
-										<ul>
-											<li><code>transition</code>: slide, fade, convex, etc.</li>
-											<li><code>theme</code>: black, white, league, etc.</li>
-											<li><code>controls</code>: show/hide navigation</li>
-											<li><code>progress</code>: show/hide progress bar</li>
-										</ul>
-									</li>
-									<li>Override with data attributes:
-										<ul>
-											<li><code>data-transition</code></li>
-											<li><code>data-background</code></li>
-											<li><code>data-auto-animate</code></li>
-										</ul>
-									</li>
+									<li>Edit <code>custom/custom-scripts.js</code> to update presenter info</li>
+									<li>Change theme color in <code>custom/custom-styles.css</code></li>
+									<li>Add your own custom components</li>
+									<li>Modify slide transitions and animations</li>
 								</ul>
 							</div>
 							<div class="col">
-								<pre><code class="javascript">Reveal.initialize({
-  controls: true,
-  progress: true,
-  center: true,
-  hash: true,
-  transition: 'slide',
-  // More options...
-  plugins: [ RevealMarkdown, RevealHighlight ]
-});</code></pre>
-							</div>
-						</div>
-					</section>	
-					<section>
-						<h3>Custom Styling</h3>
-						<p>Add your own CSS to customize the appearance:</p>
-						<pre><code class="css">.reveal h1 {
-  color: #2a76dd;
-  font-family: 'Montserrat', sans-serif;
-  text-transform: none;
-}
-
-.reveal .slides {
-  text-align: left;
-}
-
-.reveal .slides section {
-  padding: 40px;
+								<pre><code class="javascript">// In custom-scripts.js
+const presenterName = "Your Name";
+const presenterDepartment = "Your Department";
+const presenterUniversity = "Your University";
+const presenterEmail = "your.email@example.com";
+const sessionName = "Your Presentation Title";</code></pre>
+								<pre><code class="css">/* In custom-styles.css */
+:root {
+  --theme-color: #2a76dd; /* Change this color */
+  --theme-color-transparent-10: rgba(42, 118, 221, 0.1);
 }</code></pre>
-					</section>	
-				</section>
-				
-				<!-- 7. Evaluation: Methodology -->
-				<section>
-					<section>
-						<h2 class="bg-header">Advanced Features</h2>
-						<div class="content-wrapper">
-							<ul>
-								<li>Animation and Transitions
-									<ul>
-										<li>Auto-Animate between slides</li>
-										<li>Fragment animations for step-by-step reveals</li>
-										<li>Multiple transition styles</li>
-										<li>Custom slide backgrounds with <code>data-background</code></li>
-									</ul>
-								</li>
-								<li>Interactive Elements
-									<ul>
-										<li>Code highlighting with line numbers</li>
-										<li>Interactive charts with JavaScript</li>
-										<li>Embedded iframes for web content</li>
-									</ul>
-								</li>
-						</div>
-					</section>
-				</section>
-
-				<!-- 8. Evaluation: Results -->
-				<section>
-					<section>
-						<h2 class="bg-header">Plugin Showcase</h2>
-						<div class="container">
-							<div class="col">
-								<ul>
-									<li>RevealHighlight for <span class="fragment highlight-blue" data-fragment-index="1"><strong>syntax highlighting</strong></span></li>
-									<li>RevealMath for <strong>math formulas</strong></li>
-									<li><span class="fragment highlight-blue" data-fragment-index="2">RevealNotes</span> for speaker notes</li>
-									<li>RevealZoom for <strong>image zooming</strong></li>
-								</ul>
-							</div>
-							<div class="col">
-								<pre><code class="javascript">Reveal.initialize({
-  // ...other options
-  plugins: [
-    RevealHighlight,
-    RevealNotes,
-    RevealMarkdown,
-    RevealMath.KaTeX,
-    RevealZoom
-  ]
-});</code></pre>
 							</div>
 						</div>
 						<aside class="notes">
-							These plugins extend the functionality of Reveal.js and are easy to incorporate.
-							Simply include the plugin script and add it to the plugins array when initializing.
+							Customizing the template is easy - just update your personal information in the JavaScript file and adjust the theme color in the CSS variables. For more advanced customization, you can modify any part of the CSS or JavaScript.
 						</aside>
 						<div class="slide-citation">Plugins documentation: https://revealjs.com/plugins/</div>
 					</section>
@@ -830,6 +447,7 @@
 &lt;/section&gt;</code></pre>
 							</div>
 						</div>
+						<div class="slide-citation">Let me tell you a secret: this is a format that notion can export to(You know what I mean zz?).</div>
 					</section>
 					
 					<section>
@@ -867,131 +485,236 @@
 								<p class="fragment fade-out">fade-out</p>
 							</div>
 						</div>
+						<aside class="notes">
+							Fragments allow you to control how content appears, revealing points one by one or highlighting specific content to draw attention to it. Very useful for complex explanations or detailed walkthroughs.
+						</aside>
 					</section>
-				
 				</section>
 
-				
+				<!-- 5. Deployment Section -->
 				<section>
 					<section>
-						<h2 class="bg-header">Export & Sharing</h2>
-						<ul>
-							<li>Export to <span class="highlight-text">PDF</span> for offline viewing</li>
-							<li>Deploy to <span class="fragment highlight-blue" data-fragment-index="1"><strong>GitHub Pages</strong></span> for free hosting</li>
-							<li>Share links with <span class="fragment highlight-blue" data-fragment-index="2"><strong>specific slide hash</strong></span> (#/2/3)</li>
-							<li>Include <span class="highlight-text">print-pdf</span> query parameter for PDF export</li>
-							<li>Use <code>gulp</code> to create a production build</li>
-						</ul>
+                        <h2 class="bg-header">Export & Sharing</h2>
+                        <ul>
+                            <li>Export to <span class="highlight-text">PDF</span> for offline viewing</li>
+                            <li>Deploy to <span class="fragment highlight-blue" data-fragment-index="1"><strong>GitHub Pages</strong></span> for free hosting</li>
+                            <li>Share links with <span class="fragment highlight-blue" data-fragment-index="2"><strong>specific slide hash</strong></span> (#/2/3)</li>
+                            <li>Include <span class="highlight-text">print-pdf</span> query parameter for PDF export</li>
+                            <li>Use <code>gulp</code> to create a production build</li>
+                        </ul>
+                        <div class="container">
+                            <div class="col">
+                                <h4>PDF Export URL:</h4>
+                                <pre><code>http://localhost:8000/?print-pdf</code></pre>
+                            </div>
+                            <div class="col">
+                                <h4>Share Link:</h4>
+                                <pre><code>https://your-github-pages-url/#/2/3</code></pre>
+                            </div>
+                        </div>
+					</section>
+					<section>
+						<h2 class="bg-header">Deployment with GitHub & Cloudflare Pages</h2>
 						<div class="container">
 							<div class="col">
-								<h4>PDF Export URL:</h4>
-								<pre><code>http://localhost:8000/?print-pdf</code></pre>
+								<h3>Why GitHub & Cloudflare?</h3>
+								<ul>
+									<li><span class="highlight">Free hosting</span> for public repositories</li>
+									<li><span class="highlight">Global CDN</span> for fast loading worldwide</li>
+									<li><span class="highlight">Automatic builds</span> from your repository</li>
+									<li><span class="highlight">Custom domains</span> with SSL certificates</li>
+									<li><span class="highlight">Version control</span> for all changes</li>
+								</ul>
 							</div>
 							<div class="col">
-								<h4>GitHub Pages Deploy:</h4>
-								<pre><code>git add .
-git commit -m "My presentation"
-git push origin gh-pages</code></pre>
+								<img src="resources/images/github-cloudflare.png" alt="GitHub + Cloudflare">
+								<p class="img-caption">GitHub repository connected to Cloudflare Pages</p>
 							</div>
 						</div>
+						<aside class="notes">
+							GitHub and Cloudflare Pages offer an excellent free solution for hosting academic presentations, with automatic deployments, version control, and a global CDN.
+						</aside>
+					</section>
+
+					<section>
+						<h3>GitHub Setup</h3>
+						<ol>
+							<li>Create a new GitHub repository</li>
+							<li>Push your presentation files to the repository</li>
+							<li>Ensure your repository is public (or use GitHub Pro)</li>
+							<li>Update your repository settings to allow Pages deployment</li>
+						</ol>
+						<pre><code class="bash">
+# Initialize git in your project folder
+git init
+
+# Add all files
+git add .
+
+# Commit the changes
+git commit -m "Initial commit of my presentation"
+
+# Add remote repository
+git remote add origin https://github.com/username/my-presentation.git
+
+# Push to GitHub
+git push -u origin main
+</code></pre>
+						<aside class="notes">
+							Setting up your presentation in GitHub is straightforward, especially if you're already familiar with Git. The key is to have a well-organized repository that includes all necessary files.
+						</aside>
+					</section>
+
+					<section>
+						<h3>Cloudflare Pages Setup</h3>
+						<div class="container">
+							<div class="col">
+								<ol>
+									<li>Sign up for a <a href="https://pages.cloudflare.com/">Cloudflare account</a></li>
+									<li>Connect your GitHub account</li>
+									<li>Select your repository</li>
+									<li>Configure build settings:
+										<ul>
+											<li>Build command: <code>npm run build</code></li>
+											<li>Output directory: <code>dist</code></li>
+										</ul>
+									</li>
+									<li>Deploy!</li>
+								</ol>
+							</div>
+							<div class="col">
+								<img src="resources/images/cloudflare-config.png" alt="Cloudflare Configuration">
+								<p class="img-caption">Cloudflare Pages project configuration</p>
+							</div>
+						</div>
+						<aside class="notes">
+							Cloudflare Pages provides a simple interface for connecting to your GitHub repository and automatically deploying your presentation whenever you push changes.
+						</aside>
+					</section>
+
+					<section>
+						<h3>Custom Domain Setup</h3>
+						<div class="container">
+							<div class="col">
+								<ol>
+									<li>In Cloudflare Pages, go to your project settings</li>
+									<li>Select "Custom domains" tab</li>
+									<li>Add your domain (e.g., <code>slides.yourdomain.com</code>)</li>
+									<li>Configure DNS records</li>
+									<li>Automatic SSL certificate provisioning</li>
+									<li>Wait for propagation (~24 hours)</li>
+								</ol>
+							</div>
+							<div class="col">
+								<pre><code class="text">
+# Example DNS configuration
+Type    Name               Content
+CNAME   slides             pages.cloudflare.com
+</code></pre>
+								<p class="img-caption">Example DNS configuration for custom domain</p>
+							</div>
+						</div>
+						<aside class="notes">
+							Adding a custom domain makes your presentation look more professional and easier to remember. Cloudflare handles SSL certificates automatically for secure connections.
+						</aside>
 					</section>
 				</section>
 
+				<!-- 6. Contributions Section -->
 				<section>
-					<section class="balance-slide">
-						<h2 class="bg-header">Tips & Best Practices</h2>
-						<div class="content-wrapper">
+					<section>	
+						<h2 class="bg-header">Contributions</h2>
+						<div class="container">
+							<div class="col">
+								<h3>Template Development</h3>
 							<ul>
-								<li>Design Principles:
+								<li>Created modern, clean design</li>
+								<li>Implemented responsive layouts</li>
+								<li>Added custom components:
 									<ul>
-										<li>Maintain consistent styling throughout</li>
-										<li>Use fragments for step-by-step reveals</li>
-										<li>Keep text concise with bullet points</li>
-										<li>Use high-quality images</li>
-										<li>Test on different screen sizes</li>
+										<li>Image comparison slider</li>
+										<li>Data tables with styling</li>
+										<li>Image galleries</li>
+										<li>Citation formats</li>
 									</ul>
 								</li>
+								<li>Organized code for maintainability</li>
+								<li>Documented features and usage</li>
 							</ul>
-							<div class="container">
-								<div class="col">
-									<h4>DO</h4>
-									<ul>
-										<li>Use consistent font sizes</li>
-										<li>Include speaker notes</li>
-										<li>Test all interactive elements</li>
-									</ul>
-								</div>
-								<div class="col">
-									<h4>DON'T</h4>
-									<ul>
-										<li>Overcrowd slides</li>
-										<li>Use too many animations</li>
-										<li>Include large image files</li>
-									</ul>
-								</div>
 							</div>
-							<aside class="notes">
-								Oh shoot, the content got blocked? MOVE THE NAUGHTY LOGO!!!
-							</aside>
+							<div class="col">
+								<h3>Open Source & Community</h3>
+								<ul>
+									<li>Template is freely available for academic use</li>
+									<li>Contributions welcome via GitHub</li>
+									<li>Based on the open-source Reveal.js project</li>
+									<li>Developed specifically for SNUPHEL members</li>
+									<li>Continuously improving based on feedback</li>
+								</ul>
+							</div>
 						</div>
+					<aside class="notes">
+						This template represents a significant contribution to the academic presentation toolkit, making it easier for researchers to create professional, web-based presentations without extensive web development knowledge.
+					</aside>
 					</section>
 					<section>
 						<h3>Don't like this logo? Design your own!</h3>
-						<iframe src="https://svgedit.netlify.app/editor/index.html" width="100%" height="600px"></iframe>
-						<div class="slide-citation">
-							Online SVG Editor: https://svgedit.netlify.app/editor/index.html
-						</div>
+                        <iframe src="https://svgedit.netlify.app/editor/index.html" width="100%" height="600px"></iframe>
+                        <div class="slide-citation">
+                            Online SVG Editor: https://svgedit.netlify.app/editor/index.html
+                        </div>
+                        <aside class="notes">Woooops~ It's a &lt;iframe&gt;again, I love it so much~</aside>
 					</section>
 					<section>
-						<h3>Common Challenges</h3>
+						<h3>Continuous Deployment</h3>
 						<ul>
-							<li>Responsive Design:
-								<ul>
-									<li>Test on different devices and screen sizes</li>
-									<li>Use percentage-based dimensions where possible</li>
-								</ul>
-							</li>
-							<li>Cross-browser compatibility issues</li>
+							<li>Every push to your repository triggers a new build</li>
+							<li>Preview deployments for pull requests</li>
+							<li>Easy rollback to previous versions</li>
+							<li>Deployment logs for troubleshooting</li>
+							<li>Automatic optimization of assets</li>
 						</ul>
-						<pre><code class="css">@media screen and (max-width: 768px) {
-  .reveal h1 { font-size: 1.8em; }
-  .reveal .slides { padding: 15px; }
-  .container { flex-direction: column; }
-  .col { max-width: 100%; }
-}</code></pre>
-					</section>
-
-					<section>
-						<h3>Advanced Customization</h3>
-						<ul>
-							<li>Creating <span class="fragment highlight-blue" data-fragment-index="1"><strong>custom themes</strong></span></li>
-							<li>Developing your own <span class="fragment highlight-blue" data-fragment-index="2"><strong>plugins</strong></span></li>
-							<li>Integrating with other libraries</li>
-						</ul>
-						<div class="image-gallery">
-							<img src="resources/images/revealjs.png" alt="Reveal.js">
-							<img src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@master/css/theme/template/exposer.png" alt="Theme Example" style="max-height: 180px;">
-							<img src="https://user-images.githubusercontent.com/1561095/83692148-91c26480-a5e8-11ea-9030-8af516c332dc.png" alt="Plugin Example">
-						</div>
-					</section>
-					<section class="balance-slide">
-						<h3>Conclusions</h3>
-						<div class="content-wrapper">
-							<ul>
-								<li>Reveal.js offers powerful features for web-based presentations</li>
-								<li>HTML/CSS/JS knowledge provides unlimited customization</li>
-								<li>The framework is well-maintained and actively developed</li>
-								<li>Tools for rapid development save time and effort</li>
-							</ul>
-						</div>
-						<div class="slide-citation">Official documentation: https://revealjs.com<br>
-							GitHub repository: https://github.com/hakimel/reveal.js
-						</div>
+						<div class="slide-citation">Your presentation is always up-to-date with your repository</div>
+						<aside class="notes">
+							The continuous deployment workflow means you can focus on creating content, and the deployment happens automatically. This is especially useful for collaborative presentations where multiple people may be making changes.
+						</aside>
 					</section>
 				</section>
 
+				<!-- 7. Discussion Section -->
+				<section>
+					<h2 class="bg-header">Discussion & Future Directions</h2>
+					<div class="container">
+						<div class="col">
+							<h3>Benefits</h3>
+							<ul>
+								<li><span class="highlight">Platform independence</span> - works on any device</li>
+								<li><span class="highlight">Version control</span> for tracking changes</li>
+								<li><span class="highlight">Collaboration</span> through Git and GitHub</li>
+								<li><span class="highlight">Web native</span> - interactive elements & media support</li>
+								<li><span class="highlight">Consistent styling</span> across presentations</li>
+							</ul>
+						</div>
+						<div class="col">
+							<h3>Future Enhancements</h3>
+							<ul>
+								<li>Additional layout templates</li>
+								<li>More interactive components</li>
+								<li>Enhanced print stylesheets</li>
+								<li>Better mobile optimization</li>
+								<li>Integration with academic citation tools</li>
+								<li>Template gallery for different disciplines</li>
+							</ul>
+						</div>
+					</div>
+					<aside class="notes">
+						While this template offers significant advantages over traditional presentation tools, there's still room for improvement. Future enhancements will focus on making it even more useful for academic presentations across different disciplines.
+					</aside>
+				</section>
+
+				<!-- 8. Thank You Slide -->
 				<section class="grid-slide">
-					<h1 class="text-center"><strong>Thank You</strong></h2>
+					<h1 class="text-center"><strong>Thank You</strong></h1>
 					<p class="text-center" style="font-size: 1em;">Questions?</p>
 					<div class="citation text-center">
 						<p>Tool Citation: <span class="highlight-text">Reveal.js</span>: https://github.com/hakimel/reveal.js.</p>
@@ -1008,171 +731,12 @@ git push origin gh-pages</code></pre>
 			</div>
 		</div>
 
-		<!-- Load the zoom plugin script properly -->
+		<!-- Load reveal.js scripts -->
 		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script src="plugin/math/math.js"></script>
 		<script src="plugin/zoom/zoom.js"></script>
-
-		<!-- Then initialize -->
-		<script>
-			// Presenter information variables
-			const presenterName = "Xianghui Xin";
-			const presenterDepartment = "Biosystems Engineering";
-			const presenterUniversity = "Seoul National University";
-			const presenterEmail = "phasheen@snu.ac.kr";
-			const sessionName = "Tutorials on Reveal.js SNUPHEL template";
-			// Automatically get and format the current date
-			const currentDate = new Date();
-			const presentationDate = currentDate.toLocaleDateString('en-US', {
-				year: 'numeric',
-				month: 'long',
-				day: 'numeric'
-			});
-
-			// Update presenter info on page load
-			document.addEventListener('DOMContentLoaded', function() {
-				// Update all presenter name instances
-				document.querySelectorAll('.presenter-name').forEach(el => {
-					el.textContent = presenterName;
-				});
-				
-				// Update all department instances
-				document.querySelectorAll('.presenter-dept').forEach(el => {
-					el.textContent = presenterDepartment;
-				});
-				
-				// Update all university instances
-				document.querySelectorAll('.presenter-univ').forEach(el => {
-					el.textContent = presenterUniversity;
-				});
-				
-				// Update all email instances
-				document.querySelectorAll('.presenter-email').forEach(el => {
-					el.textContent = presenterEmail;
-				});
-				
-				// Update session name
-				document.querySelectorAll('.session-name').forEach(el => {
-					el.textContent = sessionName;
-				});
-				
-				// Update date
-				document.querySelectorAll('.presentation-date').forEach(el => {
-					el.textContent = presentationDate;
-				});
-				
-				// Add logo to all slides except first and last
-				// Clear approach: only add to actual content slides
-				document.querySelectorAll('.slides section').forEach(function(slide) {
-					// Skip the first and last slides
-					if (slide === document.querySelector('.slides > section:first-child') || 
-						slide === document.querySelector('.slides > section:last-child')) {
-						return;
-					}
-					
-					// Skip parent containers of vertical slides - only add to actual content slides
-					if (slide.tagName === 'SECTION' && slide.parentNode.tagName === 'SECTION') {
-						// This is an actual content slide in a vertical stack
-						if (!slide.querySelector('.logo')) {
-							const logo = document.createElement('img');
-							logo.src = "resources/logo/snuphel-logo-sans-serif-bold-italic.svg";
-							logo.className = "logo";
-							slide.appendChild(logo);
-						}
-					} else if (!slide.querySelector('section')) {
-						// This is a horizontal slide without nested sections
-						if (!slide.querySelector('.logo')) {
-							const logo = document.createElement('img');
-							logo.src = "resources/logo/snuphel-logo-sans-serif-bold-italic.svg";
-							logo.className = "logo";
-							slide.appendChild(logo);
-						}
-					}
-				});
-			});
-
-			// Initialize RevealJS after all scripts are loaded
-			window.addEventListener('load', function() {
-				// Initialize Reveal.js with simplified configuration
-				Reveal.initialize({
-					hash: true,
-					slideNumber: true,
-					progress: true,
-					transition: 'slide',
-					width: 1400,
-					height: 800,
-					margin: 0.05,
-					minScale: 0.2,
-					maxScale: 1.5,
-					center: false,
-					
-					// Auto-animate fragments
-					autoPlayMedia: true,
-					autoAnimateDuration: 1.0,
-					autoAnimateEasing: 'ease-in-out',
-					
-					// Auto-play fragments when slide appears
-					fragmentInURL: true,
-					autoPlayFragments: true,
-					fragmentAutoSlide: true,
-					fragmentAutoSlideDelay: 500,
-					
-					// Basic zoom settings
-					zoom: {
-						pan: true,
-						scale: true,
-						activate: 'alt+click',
-						maxScale: 5,
-						minScale: 0.5
-					},
-					
-					// Control options
-					controls: true,	
-					// Learn about plugins: https://revealjs.com/plugins/
-					plugins: [RevealZoom, RevealNotes, RevealMarkdown, RevealHighlight, RevealMath.KaTeX ]
-				});
-				
-				// Add event to automatically transition fragments
-				Reveal.addEventListener('slidechanged', function(event) {
-					// Get all fragments on the current slide
-					const fragments = event.currentSlide.querySelectorAll('.fragment');
-					if (fragments.length > 0) {
-						// Set a timeout to start showing fragments
-						setTimeout(function() {
-							// Show each fragment in sequence with delays
-							fragments.forEach((fragment, index) => {
-								setTimeout(function() {
-									fragment.classList.add('visible');
-								}, 500 * (index + 1));
-							});
-						}, 500); // Wait 0.5 second before starting animation
-					}
-				});
-
-				// Image comparison slider functionality
-				const container = document.querySelector('#image-comparison');
-				const slider = container.querySelector('.slider');
-				
-				// Handle normal input changes
-				slider.addEventListener('input', (e) => {
-					container.style.setProperty('--position', `${e.target.value}%`);
-				});
-				
-				// Initialize slider position
-				container.style.setProperty('--position', '50%');
-				
-				// Special handling for reveal.js slides
-				Reveal.addEventListener('slidechanged', function(event) {
-					// Check if our comparison slide is active
-					if (event.currentSlide.contains(container)) {
-						// Reset slider position when the slide becomes active
-						container.style.setProperty('--position', '50%');
-					}
-				});
-			});
-		</script>
 	</body>
 </html>
