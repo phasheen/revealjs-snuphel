@@ -4,36 +4,1178 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Tutorials on Reveal.js SNUPHEL template</title>
+
+		<!-- Force HTTPS -->
+		<script>
+			if (window.location.protocol !== 'https:' && 
+				window.location.hostname !== 'localhost' && 
+				!window.location.hostname.startsWith('127.0.0.') && 
+				!window.location.hostname.startsWith('192.168.')) {
+				window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+			}
+		</script>
+
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		
+		<style>
+			body {
+				background-color: #f5f5f5;
+			}
+			.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+				color: #2a76dd;
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 600;
+				text-transform: none;
+			}
+			.reveal h1 {
+				font-size: 1.6em;
+				margin-bottom: 0.5em;
+			}
+			.reveal h2 {
+				font-size: 1.3em;
+				margin-bottom: 0.5em;
+			}
+			.reveal h3 {
+				font-size: 1em;
+				margin-bottom: 0.3em;
+			}
+			.reveal p, .reveal li {
+				font-family: 'Montserrat', sans-serif;
+				font-size: 0.7em;
+				line-height: 1.5;
+			}
+			.reveal ul, .reveal ol {
+				display: block;
+				margin-left: 20px;
+			}
+			.reveal li {
+				margin-bottom: 0.6em;
+			}
+			.reveal .slides {
+				text-align: left;
+			}
+			.reveal .slides section {
+				padding: 40px;
+				height: 100%;
+				box-sizing: border-box;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+
+			}
+			.reveal .slides section.balance-slide {
+				justify-content: space-between; 
+			}
+			.reveal .slides section.balance-slide .content-wrapper {
+				margin-top: 60px;
+			}
+			.reveal .slides section.grid-slide {
+				display: grid !important;
+				place-items: center;
+				justify-content: center;
+				padding: 60px;
+			}
+			.reveal img {
+				border: none !important;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+				max-height: 450px;
+				display: block;
+				margin: 0 auto;
+				object-fit: contain;
+				max-width: 100%;
+				transition: transform 0.3s ease;
+			}
+			.reveal img:hover {
+				transform: scale(1.02);
+			}
+			.container {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				width: 100%;
+				height: 90%;
+				gap: 20px;
+			}
+			.col {
+				flex: 1;
+				padding: 10px;
+				max-width: 48%;
+				height: 100%;
+			}
+			.smalltext {
+				font-size: 0.65em;
+			}
+			.citation {
+				font-size: 0.6em;
+				font-style: italic;
+				color: #666;
+				margin-top: 10px;
+				margin-bottom: 15px;
+			}
+			.reveal ul ul {
+				font-size: 1.2em;
+			}
+			.author-info {
+				font-size: 0.8em;
+				margin-top: 15px;
+				margin-bottom: 20px;
+				font-style: italic;
+				font-weight: bold;
+			}
+			.img-caption {
+				font-size: 0.5em !important;
+				text-align: center;
+				color: #555;
+				margin-top: 5px;
+			}
+			.bg-header {
+				background-color: rgba(42, 118, 221, 0.1);
+				padding: 10px 15px;
+				border-left: 4px solid #2a76dd;
+				margin-bottom: 20px;
+				display: inline-block;
+				border-radius: 0 4px 4px 0;
+			}
+			.highlight {
+				color: #2a76dd;
+				font-weight: bold;
+			}
+			.text-center {
+				text-align: center;
+			}
+			.logo {
+				position: absolute;
+				bottom: 15px;
+				right: 50px;
+				max-width: 300px!important;
+				height: auto;
+				opacity: 1;
+				z-index: 100;
+				box-shadow: none !important;
+				-webkit-box-shadow: none !important;
+				transition: none !important;
+				user-select: none;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				pointer-events: none;
+				font-family: 'Lato', sans-serif!important;
+			}
+			.logo:hover {
+				transform: none !important;
+				box-shadow: none !important;
+				-webkit-box-shadow: none !important;
+			}
+			.reveal img.logo {
+				box-shadow: none !important;
+				-webkit-box-shadow: none !important;
+			}
+			.data-table {
+				font-size: 0.7em;
+				width: 100%;
+				border-collapse: collapse;
+				margin: 10px 0;
+				overflow-x: hidden;
+				box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+			}
+			.data-table th {
+				background-color: rgba(42, 118, 221, 0.2);
+				color: #333;
+				font-weight: 600;
+				padding: 12px !important;
+			}
+			.data-table th, .data-table td {
+				padding: 10px;
+				border: 1px solid #ddd;
+				text-align: center;
+			}
+			.data-table td {
+				padding: 10px !important;
+			}
+			.data-table tr:nth-child(even) {
+				background-color: rgba(0,0,0,0.03);
+			}
+			.data-table tr:hover {
+				background-color: rgba(42, 118, 221, 0.05);
+			}
+			.data-table .highlight-cell {
+				background-color: rgba(42, 118, 221, 0.15);
+				font-weight: bold;
+			}
+			.image-gallery {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 15px;
+				margin-top: 20px;
+			}
+			.image-gallery img {
+				max-height: 180px;
+				width: auto;
+				box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4) !important;
+				border-radius: 4px;
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+			.image-gallery img:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5) !important;
+			}
+			.bg-image {
+				position: absolute;
+				bottom: 20px;
+				right: 20px;
+				max-width: 200px;
+				border-radius: 5px;
+				opacity: 0.85;
+				mask-image: radial-gradient(ellipse 80% 70% at 20% 70%, transparent, black);
+				-webkit-mask-image: radial-gradient(ellipse 80% 70% at 20% 70%, transparent, black);
+			}
+			.key-word {
+				color: #2a76dd;
+				font-weight: bold;
+			}
+			.fragment.highlight-blue {
+				opacity: 1;
+				visibility: inherit;
+			}
+			.fragment.highlight-blue.visible {
+				font-weight: bold;
+				color: #2a76dd;
+			}
+			.highlight-text {
+				background-color: rgba(42, 118, 221, 0.1);
+				padding: 2px 5px;
+				border-radius: 3px;
+				font-weight: bold;
+			}
+			.slide-citation {
+				position: absolute;
+				bottom: 40px;
+				left: 60px;
+				font-size: 0.5em;
+				opacity: 0.6;
+				font-style: italic;
+				max-width: 1000px;
+				text-align: right;
+				color: #555;
+			}
+			/* Before-After Comparison Styles */
+			.bal-container-small {
+				position: relative;
+				width: 979px;
+				height: 546px;
+				margin: 0 auto;
+				overflow: hidden;
+				--position: 50%;
+				border-radius: 0.5rem;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+			}
+			.image-container {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			.slider-image {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: left;
+				margin: 0;
+				padding: 0;
+				max-width: none;
+				max-height: none;
+				z-index: 1;
+			}
+			.image-before {
+				position: absolute;
+				width: var(--position);
+				height: 100%;
+				overflow: hidden;
+				top: 0;
+				left: 0;
+				z-index: 2;
+			}
+			.image-before img {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: left;
+				margin: 0;
+				padding: 0;
+				max-width: none;
+				max-height: none;
+			}
+			.slider {
+				position: absolute;
+				inset: 0;
+				cursor: pointer;
+				opacity: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 10;
+				margin: 0; /* Override reveal.js margins */
+			}
+			.slider:focus-visible ~ .slider-button {
+				outline: 3px solid #2a76dd;
+				outline-offset: 3px;
+			}
+			.slider-line {
+				position: absolute;
+				inset: 0;
+				width: 4px;
+				height: 100%;
+				background-color: #2a76dd;
+				left: var(--position);
+				transform: translateX(-50%);
+				pointer-events: none;
+				z-index: 5;
+			}
+			.slider-button {
+				position: absolute;
+				background-color: #2a76dd;
+				color: white;
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				top: 50%;
+				left: var(--position);
+				transform: translate(-50%, -50%);
+				pointer-events: none;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+				z-index: 6;
+			}
+			.slider-button::before, 
+			.slider-button::after {
+				content: "";
+				position: absolute;
+				width: 0;
+				height: 0;
+				border: 6px solid transparent;
+			}
+			.slider-button::before {
+				border-right: 6px solid white;
+				left: -5px;
+			}
+			.slider-button::after {
+				border-left: 6px solid white;
+				right: -5px;
+			}
+			.image-label {
+				position: absolute;
+				top: 10px;
+				padding: 5px 10px;
+				background: rgba(0, 0, 0, 0.5);
+				color: white;
+				font-size: 0.8em;
+				border-radius: 3px;
+				z-index: 5;
+			}
+			.label-before {
+				left: 10px;
+			}
+			.label-after {
+				right: 10px;
+			}
+		</style>
 	</head>
 	<body>
-		<div class="reveal">
+		<div class="reveal"">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<!-- 1. Title and Introduction -->
+				<section data-background="resources/images/snuphel-2024.png" data-background-opacity="0.4" data-background-size="cover">
+					<div style="background-color: rgba(255, 255, 255, 0.7); padding: 30px; border-radius: 10px; max-width: 90%; margin: 0 auto;">
+						<h1><strong>Reveal.js</strong></h1>
+						<h3>An html presentation framework I recommend</h3>
+						<p class="author-info"><span class="presenter-name"></span><br>
+						Department of <span class="presenter-dept"></span><br>
+						<span class="presenter-univ"></span></p>
+						<p class="smalltext">A design with &#10084;&#65039; for</p>
+						<p class="citation">SNUPHEL Members</p>
+						<p class="smalltext">Today: <span class="presentation-date"></span></p>
+						<p class="smalltext">Session: <span class="session-name"></p>
+					</div>
+					<aside class="notes">
+						Hi hi
+					</aside>
+				</section>
+
+				<!-- Add Table of Contents slide -->
+				<section>
+					<h2 class="bg-header">Presentation Outline</h2>
+					<ol>
+						<li><a href="#/2"><strong>Motivation</strong></a> - What is this and why should you care?</li>
+						<li><a href="#/4"><strong>Features</strong></a> - What can this presentation do?</li>
+						<li><a href="#/4"><strong>Problem Statement</strong></a> - A pipeline for full deployment of a fancy presentation</li>
+						<li><a href="#/6"><strong>Approach</strong></a> - Techinical Details</li>
+						<li><a href="#/13"><strong>Result</strong></a> - Out of the box template!</li>
+						<li><a href="#/17"><strong>Contributions</strong></a> - what I have done.</li>
+						<li><a href="#/19"><strong>Discussion</strong></a> - Why is looking fancy important?</li>
+					</ol>
+					<aside class="notes">
+						This is our roadmap for today's presentation. 
+					</aside>
+					<div class="slide-citation">you can jump to any section by clicking on the section name</div>
+				</section>
+
+
+				<section>
+					<section>
+						<h2 class="bg-header">Motivation</h2>
+						<div class="container">
+							<div class="col">
+								<ul>
+									<li>Web-based content is flexible and easy to share</li>
+									<li>To make use of AI tools in an easier way</li>
+									<li>It looks <span class="fragment highlight-blue" data-fragment-index="1"><strong>cool</strong></span>.</li>
+								</ul>
+							</div>
+							<div class="col">
+								<img src="resources/images/revealjs.png" alt="Reveal.js">
+								<p class="img-caption">Reveal.js logo</p>
+							</div>
+						</div>
+					</section>
+					
+					<section>
+						<h3>Limitations of Existing Methods</h3>
+						<table class="data-table">
+							<thead>
+								<tr>
+									<th>Technology</th>
+									<th>Cost</th>
+									<th>Resolution</th>
+									<th>Color/Texture</th>
+									<th>Computation</th>
+									<th>Accessibility</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Powerpoint</td>
+									<td class="highlight-cell">Low</td>
+									<td>High</td>
+									<td>High</td>
+									<td class="highlight-cell">Low</td>
+									<td class="highlight-cell">High</td>
+								</tr>
+								<tr>
+									<td>Google Slides</td>
+									<td>High</td>
+									<td class="highlight-cell">High</td>
+									<td>Low</td>
+									<td>Medium</td>
+									<td>Low</td>
+								</tr>
+								<tr>
+									<td>Notion</td>
+									<td>Medium</td>
+									<td>Medium</td>
+									<td>Medium</td>
+									<td>Medium</td>
+									<td>Medium</td>
+								</tr>
+								<tr>
+									<td>Canvas-like</td>
+									<td class="highlight-cell">Low</td>
+									<td class="highlight-cell">High</td>
+									<td class="highlight-cell">High</td>
+									<td>Very High</td>
+									<td>Medium</td>
+								</tr>
+								<tr>
+									<td class="highlight-cell">Reveal.js</td>
+									<td class="highlight-cell">Low</td>
+									<td class="highlight-cell">High</td>
+									<td class="highlight-cell">High</td>
+									<td class="highlight-cell">Medium</td>
+									<td class="highlight-cell">High</td>
+								</tr>
+							</tbody>
+						</table>
+						<p class="img-caption">Table 1: Comparison of different 3D reconstruction technologies</p>
+					</section>
+
+					<section>
+						<h3>Presenter View </h3>
+						<div>
+							<div>
+								<ul>
+									<li>Press S to call up the <span class="fragment highlight-blue" data-fragment-index="1"><strong>Presenter View</strong></span></li>
+									<li>Comparison of global vs. local shooting methods</li>
+								</ul>
+							</div>	
+							<div>
+								<img src="resources/images/3dgs.png" alt="3D Gaussian Splatting Mechanism">
+								<p class="img-caption">3D Gaussian Splatting rendering pipeline</p>
+							</div>	
+							<div class="slide-citation">3D Gaussian Splatting for Real-Time Radiance Field Rendering (2023)</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Iframe: a webpage in a webpage(this slide)</h3>
+						<div class="container">
+							<div class="col">
+								<ul>
+									<li>If you want to show a preview(?) of your/others' webpage:</li>
+									<li>looking at this code (Woops, another feature~)</li>
+									<pre><code data-line-numbers="3" class="html">
+&lt;div&gt;
+	&lt;iframe src="https://3dgs.phasheen.com" width="600" height="500" title="Web Preview"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</code></pre>
+								</ul>
+							</div>
+							<div class="col">
+								<div>
+									<iframe src="https://3dgs.phasheen.com" width="600" height="500" title="Web Preview"></iframe>
+								</div>
+							</div>
+						</div>
+						<div class="slide-citation">https://3dgs.phasheen.com</div>
+					</section>
+					
+					<section>
+						<h3>Customized feature:Before-After Slider</h3>
+						<div class="bal-container-small" id="image-comparison" style="margin-top: 30px;">
+							<div class="image-container">
+								<img class="slider-image" src="resources/images/3dgs_truck.png" alt="3DGS Rendering" style="max-height: none;">
+								<div class="image-before">
+									<img src="resources/images/gt_truck.png" alt="Ground Truth">
+								</div>
+								<div class="image-label label-before">Ground Truth</div>
+								<div class="image-label label-after">3DGS</div>
+							</div>
+							<input type="range" min="0" max="100" value="50" aria-label="Percentage of before image shown" class="slider">
+							<div class="slider-line" aria-hidden="true"></div>
+							<div class="slider-button" aria-hidden="true"></div>
+						</div>
+						<p class="img-caption">Ground truth VS 3DGS rendered novel view (2023)</p>
+						<div class="slide-citation">https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2 class="bg-header">Problem Statement</h2>
+						<ul>
+							<li>Plants are inherently <strong>three-dimensional</strong>; 2D imaging has <span class="fragment highlight-blue" data-fragment-index="1">severe limitations</span></li>
+							<li><strong>High-cost</strong> of LiDAR systems limits accessibility</li>
+							<li>RGB-D sensors generate <span class="fragment highlight-blue" data-fragment-index="2">low-resolution point cloud data</span></li>
+							<li>Traditional 3D reconstructions lose high-resolution color and texture details</li>
+							<li>Neural Radiance Fields (NeRF) faces <strong>computational efficiency challenges</strong></li>
+							<li>3D Gaussian Splatting (3DGS) remains <span class="fragment highlight-blue" data-fragment-index="3">underexplored in agriculture</span></li>
+						</ul>
+						<aside class="notes">
+							to make the deployment easier it took some time..
+						</aside>
+					</section>
+
+					<section>
+						<h3>Research Objectives</h3>
+						<ol>
+							<li>Reconstruct high-fidelity <span class="fragment highlight-blue" data-fragment-index="1"><strong>3D Gaussian Splatting (3DGS)</strong></span> models of individual cotton plants</li>
+							<li>Compare the performance of <span class="fragment highlight-blue" data-fragment-index="2"><strong>foundation model (SAM)</strong></span> and <span class="fragment highlight-blue" data-fragment-index="3"><strong>YOLOv11x</strong></span> in obtaining 2D instance masks from RGB images</li>
+							<li><strong>Segment</strong> bolls in the 3DGS model and cluster segmentation results from multiple views</li>
+							<li>Evaluate 3D boll mapping accuracy and extract phenotypic traits</li>
+						</ol>
+
+					</section>
+				</section>
+
+				<!-- 4. Approach: Data Collection & Preprocessing -->
+				<section>
+					<section>
+						<h2 class="bg-header">Approach</h2>
+						<div >
+							<h3>Creating Your First Reveal.js Presentation</h3>
+							<ul>
+								<li>Install dependencies with <code>npm install</code></li>
+								<li>Start the development server with <code>npm start</code></li>
+								<li>Edit index.html to create your slides</li>
+								<li>Use section tags to create new slides</li>
+								<li>Nested sections create vertical slides</li>
+							</ul>
+						</div>
+					</section>
+					<section>
+						<h3>Basic Slide Structure</h3>
+						<div class="container">
+							<div class="col">
+								<ul>
+									<li>Each slide is a <code>&lt;section&gt;</code> element</li>
+									<li>Vertical slides use nested sections</li>
+									<li>Use HTML or Markdown for content</li>
+									<li>Add notes with <code>&lt;aside class="notes"&gt;</code></li>
+								</ul>
+							</div>
+							<div class="col">
+								<pre><code class="html">&lt;section&gt;
+  &lt;h2&gt;Slide Title&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Bullet point 1&lt;/li&gt;
+    &lt;li&gt;Bullet point 2&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;aside class="notes"&gt;
+    Speaker notes here
+  &lt;/aside&gt;
+&lt;/section&gt;</code></pre>
+							</div>
+						</div>
+					</section>	
+
+					<section>
+						<h3>Configuration Options</h3>
+						<div class="container">
+							<div class="col">
+								<ul>
+									<li>Initialize with options:
+										<ul>
+											<li><code>transition</code>: slide, fade, convex, etc.</li>
+											<li><code>theme</code>: black, white, league, etc.</li>
+											<li><code>controls</code>: show/hide navigation</li>
+											<li><code>progress</code>: show/hide progress bar</li>
+										</ul>
+									</li>
+									<li>Override with data attributes:
+										<ul>
+											<li><code>data-transition</code></li>
+											<li><code>data-background</code></li>
+											<li><code>data-auto-animate</code></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="col">
+								<pre><code class="javascript">Reveal.initialize({
+  controls: true,
+  progress: true,
+  center: true,
+  hash: true,
+  transition: 'slide',
+  // More options...
+  plugins: [ RevealMarkdown, RevealHighlight ]
+});</code></pre>
+							</div>
+						</div>
+					</section>	
+					<section>
+						<h3>Custom Styling</h3>
+						<p>Add your own CSS to customize the appearance:</p>
+						<pre><code class="css">.reveal h1 {
+  color: #2a76dd;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: none;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal .slides section {
+  padding: 40px;
+}</code></pre>
+					</section>	
+				</section>
+				
+				<!-- 7. Evaluation: Methodology -->
+				<section>
+					<section>
+						<h2 class="bg-header">Advanced Features</h2>
+						<div class="content-wrapper">
+							<ul>
+								<li>Animation and Transitions
+									<ul>
+										<li>Auto-Animate between slides</li>
+										<li>Fragment animations for step-by-step reveals</li>
+										<li>Multiple transition styles</li>
+										<li>Custom slide backgrounds with <code>data-background</code></li>
+									</ul>
+								</li>
+								<li>Interactive Elements
+									<ul>
+										<li>Code highlighting with line numbers</li>
+										<li>Interactive charts with JavaScript</li>
+										<li>Embedded iframes for web content</li>
+									</ul>
+								</li>
+						</div>
+					</section>
+				</section>
+
+				<!-- 8. Evaluation: Results -->
+				<section>
+					<section>
+						<h2 class="bg-header">Plugin Showcase</h2>
+						<div class="container">
+							<div class="col">
+								<ul>
+									<li>RevealHighlight for <span class="fragment highlight-blue" data-fragment-index="1"><strong>syntax highlighting</strong></span></li>
+									<li>RevealMath for <strong>math formulas</strong></li>
+									<li><span class="fragment highlight-blue" data-fragment-index="2">RevealNotes</span> for speaker notes</li>
+									<li>RevealZoom for <strong>image zooming</strong></li>
+								</ul>
+							</div>
+							<div class="col">
+								<pre><code class="javascript">Reveal.initialize({
+  // ...other options
+  plugins: [
+    RevealHighlight,
+    RevealNotes,
+    RevealMarkdown,
+    RevealMath.KaTeX,
+    RevealZoom
+  ]
+});</code></pre>
+							</div>
+						</div>
+						<aside class="notes">
+							These plugins extend the functionality of Reveal.js and are easy to incorporate.
+							Simply include the plugin script and add it to the plugins array when initializing.
+						</aside>
+						<div class="slide-citation">Plugins documentation: https://revealjs.com/plugins/</div>
+					</section>
+
+					<section>
+						<h3>Math Formulas with KaTeX</h3>
+						<div class="container">
+							<div class="col">
+								<ul>
+									<li>Include RevealMath.KaTeX plugin</li>
+									<li>Write inline math with $\LaTeX$ syntax</li>
+									<li>Create complex equations</li>
+									<li>Renders faster than MathJax</li>
+								</ul>
+							</div>
+							<div class="col">
+								<p>Example equation:</p>
+								<p>$$E = mc^2$$</p>
+								<p>$$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)$$</p>
+								<p class="img-caption">Einstein's theory of relativity and the Fundamental Theorem of Calculus</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Markdown Support</h3>
+						<div class="container">
+							<div class="col">
+								<table class="data-table">
+									<thead>
+										<tr>
+											<th>Feature</th>
+											<th>HTML</th>
+											<th>Markdown</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Headers</td>
+											<td>&lt;h1&gt;...&lt;/h1&gt;</td>
+											<td class="highlight-cell"># Header</td>
+										</tr>
+										<tr>
+											<td>Lists</td>
+											<td>&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;</td>
+											<td class="highlight-cell">* Item</td>
+										</tr>
+										<tr>
+											<td>Links</td>
+											<td>&lt;a href="..."&gt;...&lt;/a&gt;</td>
+											<td class="highlight-cell">[text](url)</td>
+										</tr>
+										<tr>
+											<td>Images</td>
+											<td>&lt;img src="..." alt="..."&gt;</td>
+											<td class="highlight-cell">![alt](url)</td>
+										</tr>
+										<tr>
+											<td>Code</td>
+											<td>&lt;pre&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;</td>
+											<td class="highlight-cell">```lang code```</td>
+										</tr>
+									</tbody>
+								</table>
+								<p class="smalltext">Write slides in Markdown for faster content creation</p>
+							</div>
+							<div class="col">
+								<pre><code class="html">&lt;section data-markdown&gt;
+  &lt;textarea data-template&gt;
+    # Slide Title
+    
+    * Bullet point 1
+    * Bullet point 2
+    
+    ---
+    
+    ## Next Slide
+    
+    ```javascript
+    let code = "highlighted";
+    ```
+  &lt;/textarea&gt;
+&lt;/section&gt;</code></pre>
+							</div>
+						</div>
+					</section>
+					
+					<section>
+						<h3>Fragment Animations</h3>
+						<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px;">
+							<div>
+								<h4>Fragment Types</h4>
+								<ul>
+									<li class="fragment fade-in">fade-in</li>
+									<li class="fragment fade-up">fade-up</li>
+									<li class="fragment fade-down">fade-down</li>
+									<li class="fragment fade-left">fade-left</li>
+									<li class="fragment fade-right">fade-right</li>
+								</ul>
+							</div>
+							<div>
+								<h4>Code Example</h4>
+								<pre><code class="html">&lt;ul&gt;
+  &lt;li class="fragment fade-in"&gt;fade-in&lt;/li&gt;
+  &lt;li class="fragment fade-up"&gt;fade-up&lt;/li&gt;
+  &lt;li class="fragment fade-down"&gt;fade-down&lt;/li&gt;
+  &lt;li class="fragment fade-left"&gt;fade-left&lt;/li&gt;
+  &lt;li class="fragment fade-right"&gt;fade-right&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+							</div>
+							<div>
+								<h4>Highlight Fragments</h4>
+								<p>The <span class="fragment highlight-red">red</span> <span class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span> fragments.</p>
+							</div>
+							<div>
+								<h4>Other Effects</h4>
+								<p class="fragment grow">grow</p>
+								<p class="fragment shrink">shrink</p>
+								<p class="fragment strike">strike</p>
+								<p class="fragment fade-out">fade-out</p>
+							</div>
+						</div>
+					</section>
+				
+				</section>
+
+				
+				<section>
+					<section>
+						<h2 class="bg-header">Export & Sharing</h2>
+						<ul>
+							<li>Export to <span class="highlight-text">PDF</span> for offline viewing</li>
+							<li>Deploy to <span class="fragment highlight-blue" data-fragment-index="1"><strong>GitHub Pages</strong></span> for free hosting</li>
+							<li>Share links with <span class="fragment highlight-blue" data-fragment-index="2"><strong>specific slide hash</strong></span> (#/2/3)</li>
+							<li>Include <span class="highlight-text">print-pdf</span> query parameter for PDF export</li>
+							<li>Use <code>gulp</code> to create a production build</li>
+						</ul>
+						<div class="container">
+							<div class="col">
+								<h4>PDF Export URL:</h4>
+								<pre><code>http://localhost:8000/?print-pdf</code></pre>
+							</div>
+							<div class="col">
+								<h4>GitHub Pages Deploy:</h4>
+								<pre><code>git add .
+git commit -m "My presentation"
+git push origin gh-pages</code></pre>
+							</div>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section class="balance-slide">
+						<h2 class="bg-header">Tips & Best Practices</h2>
+						<div class="content-wrapper">
+							<ul>
+								<li>Design Principles:
+									<ul>
+										<li>Maintain consistent styling throughout</li>
+										<li>Use fragments for step-by-step reveals</li>
+										<li>Keep text concise with bullet points</li>
+										<li>Use high-quality images</li>
+										<li>Test on different screen sizes</li>
+									</ul>
+								</li>
+							</ul>
+							<div class="container">
+								<div class="col">
+									<h4>DO</h4>
+									<ul>
+										<li>Use consistent font sizes</li>
+										<li>Include speaker notes</li>
+										<li>Test all interactive elements</li>
+									</ul>
+								</div>
+								<div class="col">
+									<h4>DON'T</h4>
+									<ul>
+										<li>Overcrowd slides</li>
+										<li>Use too many animations</li>
+										<li>Include large image files</li>
+									</ul>
+								</div>
+							</div>
+							<aside class="notes">
+								Oh shoot, the content got blocked? MOVE THE NAUGHTY LOGO!!!
+							</aside>
+						</div>
+					</section>
+					<section>
+						<h3>Don't like this logo? Design your own!</h3>
+						<iframe src="https://svgedit.netlify.app/editor/index.html" width="100%" height="600px"></iframe>
+						<div class="slide-citation">
+							Online SVG Editor: https://svgedit.netlify.app/editor/index.html
+						</div>
+					</section>
+					<section>
+						<h3>Common Challenges</h3>
+						<ul>
+							<li>Responsive Design:
+								<ul>
+									<li>Test on different devices and screen sizes</li>
+									<li>Use percentage-based dimensions where possible</li>
+								</ul>
+							</li>
+							<li>Cross-browser compatibility issues</li>
+						</ul>
+						<pre><code class="css">@media screen and (max-width: 768px) {
+  .reveal h1 { font-size: 1.8em; }
+  .reveal .slides { padding: 15px; }
+  .container { flex-direction: column; }
+  .col { max-width: 100%; }
+}</code></pre>
+					</section>
+
+					<section>
+						<h3>Advanced Customization</h3>
+						<ul>
+							<li>Creating <span class="fragment highlight-blue" data-fragment-index="1"><strong>custom themes</strong></span></li>
+							<li>Developing your own <span class="fragment highlight-blue" data-fragment-index="2"><strong>plugins</strong></span></li>
+							<li>Integrating with other libraries</li>
+						</ul>
+						<div class="image-gallery">
+							<img src="resources/images/revealjs.png" alt="Reveal.js">
+							<img src="https://cdn.jsdelivr.net/gh/hakimel/reveal.js@master/css/theme/template/exposer.png" alt="Theme Example" style="max-height: 180px;">
+							<img src="https://user-images.githubusercontent.com/1561095/83692148-91c26480-a5e8-11ea-9030-8af516c332dc.png" alt="Plugin Example">
+						</div>
+					</section>
+					<section class="balance-slide">
+						<h3>Conclusions</h3>
+						<div class="content-wrapper">
+							<ul>
+								<li>Reveal.js offers powerful features for web-based presentations</li>
+								<li>HTML/CSS/JS knowledge provides unlimited customization</li>
+								<li>The framework is well-maintained and actively developed</li>
+								<li>Tools for rapid development save time and effort</li>
+							</ul>
+						</div>
+						<div class="slide-citation">Official documentation: https://revealjs.com<br>
+							GitHub repository: https://github.com/hakimel/reveal.js
+						</div>
+					</section>
+				</section>
+
+				<section class="grid-slide">
+					<h1 class="text-center"><strong>Thank You</strong></h2>
+					<p class="text-center" style="font-size: 1em;">Questions?</p>
+					<div class="citation text-center">
+						<p>Tool Citation: <span class="highlight-text">Reveal.js</span>: https://github.com/hakimel/reveal.js.</p>
+					</div>
+					<div class="author-info text-center" style="opacity: 0.7;">
+						<p><span class="presenter-name"></span><br>
+						<span class="presenter-email"></span><br>
+					</div>
+					<p class="text-center" style="font-size: 0.5em; margin-top: 40px; opacity: 0.7;">This presentation was created with <a href="https://revealjs.com" target="_blank">reveal.js</a>, an HTML presentation framework.</p>
+					<aside class="notes">
+						Thank you for your attention. 
+					</aside>
+				</section>
 			</div>
 		</div>
 
+		<!-- Load the zoom plugin script properly -->
 		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+		<script src="plugin/math/math.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+		<!-- Then initialize -->
+		<script>
+			// Presenter information variables
+			const presenterName = "Xianghui Xin";
+			const presenterDepartment = "Biosystems Engineering";
+			const presenterUniversity = "Seoul National University";
+			const presenterEmail = "phasheen@snu.ac.kr";
+			const sessionName = "Tutorials on Reveal.js SNUPHEL template";
+			// Automatically get and format the current date
+			const currentDate = new Date();
+			const presentationDate = currentDate.toLocaleDateString('en-US', {
+				year: 'numeric',
+				month: 'long',
+				day: 'numeric'
+			});
+
+			// Update presenter info on page load
+			document.addEventListener('DOMContentLoaded', function() {
+				// Update all presenter name instances
+				document.querySelectorAll('.presenter-name').forEach(el => {
+					el.textContent = presenterName;
+				});
+				
+				// Update all department instances
+				document.querySelectorAll('.presenter-dept').forEach(el => {
+					el.textContent = presenterDepartment;
+				});
+				
+				// Update all university instances
+				document.querySelectorAll('.presenter-univ').forEach(el => {
+					el.textContent = presenterUniversity;
+				});
+				
+				// Update all email instances
+				document.querySelectorAll('.presenter-email').forEach(el => {
+					el.textContent = presenterEmail;
+				});
+				
+				// Update session name
+				document.querySelectorAll('.session-name').forEach(el => {
+					el.textContent = sessionName;
+				});
+				
+				// Update date
+				document.querySelectorAll('.presentation-date').forEach(el => {
+					el.textContent = presentationDate;
+				});
+				
+				// Add logo to all slides except first and last
+				// Clear approach: only add to actual content slides
+				document.querySelectorAll('.slides section').forEach(function(slide) {
+					// Skip the first and last slides
+					if (slide === document.querySelector('.slides > section:first-child') || 
+						slide === document.querySelector('.slides > section:last-child')) {
+						return;
+					}
+					
+					// Skip parent containers of vertical slides - only add to actual content slides
+					if (slide.tagName === 'SECTION' && slide.parentNode.tagName === 'SECTION') {
+						// This is an actual content slide in a vertical stack
+						if (!slide.querySelector('.logo')) {
+							const logo = document.createElement('img');
+							logo.src = "resources/logo/snuphel-logo-sans-serif-bold-italic.svg";
+							logo.className = "logo";
+							slide.appendChild(logo);
+						}
+					} else if (!slide.querySelector('section')) {
+						// This is a horizontal slide without nested sections
+						if (!slide.querySelector('.logo')) {
+							const logo = document.createElement('img');
+							logo.src = "resources/logo/snuphel-logo-sans-serif-bold-italic.svg";
+							logo.className = "logo";
+							slide.appendChild(logo);
+						}
+					}
+				});
+			});
+
+			// Initialize RevealJS after all scripts are loaded
+			window.addEventListener('load', function() {
+				// Initialize Reveal.js with simplified configuration
+				Reveal.initialize({
+					hash: true,
+					slideNumber: true,
+					progress: true,
+					transition: 'slide',
+					width: 1400,
+					height: 800,
+					margin: 0.05,
+					minScale: 0.2,
+					maxScale: 1.5,
+					center: false,
+					
+					// Auto-animate fragments
+					autoPlayMedia: true,
+					autoAnimateDuration: 1.0,
+					autoAnimateEasing: 'ease-in-out',
+					
+					// Auto-play fragments when slide appears
+					fragmentInURL: true,
+					autoPlayFragments: true,
+					fragmentAutoSlide: true,
+					fragmentAutoSlideDelay: 500,
+					
+					// Basic zoom settings
+					zoom: {
+						pan: true,
+						scale: true,
+						activate: 'alt+click',
+						maxScale: 5,
+						minScale: 0.5
+					},
+					
+					// Control options
+					controls: true,	
+					// Learn about plugins: https://revealjs.com/plugins/
+					plugins: [RevealZoom, RevealNotes, RevealMarkdown, RevealHighlight, RevealMath.KaTeX ]
+				});
+				
+				// Add event to automatically transition fragments
+				Reveal.addEventListener('slidechanged', function(event) {
+					// Get all fragments on the current slide
+					const fragments = event.currentSlide.querySelectorAll('.fragment');
+					if (fragments.length > 0) {
+						// Set a timeout to start showing fragments
+						setTimeout(function() {
+							// Show each fragment in sequence with delays
+							fragments.forEach((fragment, index) => {
+								setTimeout(function() {
+									fragment.classList.add('visible');
+								}, 500 * (index + 1));
+							});
+						}, 500); // Wait 0.5 second before starting animation
+					}
+				});
+
+				// Image comparison slider functionality
+				const container = document.querySelector('#image-comparison');
+				const slider = container.querySelector('.slider');
+				
+				// Handle normal input changes
+				slider.addEventListener('input', (e) => {
+					container.style.setProperty('--position', `${e.target.value}%`);
+				});
+				
+				// Initialize slider position
+				container.style.setProperty('--position', '50%');
+				
+				// Special handling for reveal.js slides
+				Reveal.addEventListener('slidechanged', function(event) {
+					// Check if our comparison slide is active
+					if (event.currentSlide.contains(container)) {
+						// Reset slider position when the slide becomes active
+						container.style.setProperty('--position', '50%');
+					}
+				});
 			});
 		</script>
 	</body>
