@@ -1,30 +1,77 @@
-<p align="center">
-  <a href="https://revealjs.com">
-  <img src="https://hakim-static.s3.amazonaws.com/reveal-js/logo/v1/reveal-black-text-sticker.png" alt="reveal.js" width="500">
-  </a>
-  <br><br>
-  <a href="https://github.com/hakimel/reveal.js/actions"><img src="https://github.com/hakimel/reveal.js/workflows/tests/badge.svg"></a>
-  <a href="https://slides.com/"><img src="https://static.slid.es/images/slides-github-banner-320x40.png?1" alt="Slides" width="160" height="20"></a>
-</p>
+# SNUPHEL Reveal.js Template
 
-reveal.js is an open source HTML presentation framework. It enables anyone with a web browser to create beautiful presentations for free. Check out the live demo at [revealjs.com](https://revealjs.com/).
+This template provides a clean, modern design for creating presentations using Reveal.js. The template has been organized to separate style and functionality from content, making it easier to maintain and customize.
 
-The framework comes with a powerful feature set including [nested slides](https://revealjs.com/vertical-slides/), [Markdown support](https://revealjs.com/markdown/), [Auto-Animate](https://revealjs.com/auto-animate/), [PDF export](https://revealjs.com/pdf-export/), [speaker notes](https://revealjs.com/speaker-view/), [LaTeX typesetting](https://revealjs.com/math/), [syntax highlighted code](https://revealjs.com/code/) and an [extensive API](https://revealjs.com/api/).
+## File Structure
 
----
+- `index.html` - The main presentation file with all your slides
+- `custom/custom-styles.css` - All custom styling for the presentation
+- `custom/custom-scripts.js` - JavaScript functionality, including presenter info and slide behavior
 
-Want to create reveal.js presentation in a graphical editor? Try <https://slides.com>. It's made by the same people behind reveal.js.
+## How to Use This Template
 
----
+1. Edit the content in `index.html` to create your presentation
+2. Modify presenter information in `custom/custom-scripts.js`:
+   ```javascript
+   const presenterName = "Your Name";
+   const presenterDepartment = "Your Department";
+   const presenterUniversity = "Your University";
+   const presenterEmail = "your.email@example.com";
+   const sessionName = "Your Presentation Title";
+   ```
 
-### Getting started
-- 🚀 [Install reveal.js](https://revealjs.com/installation)
-- 👀 [View the demo presentation](https://revealjs.com/demo)
-- 📖 [Read the documentation](https://revealjs.com/markup/)
-- 🖌 [Try the visual editor for reveal.js at Slides.com](https://slides.com/)
-- 🎬 [Watch the reveal.js video course (paid)](https://revealjs.com/course)
+3. Start the development server:
+   ```
+   npm start
+   ```
 
---- 
-<div align="center">
-  MIT licensed | Copyright © 2011-2024 Hakim El Hattab, https://hakim.se
-</div>
+4. View your presentation at http://localhost:8000
+
+## Template Features
+
+- Modern, clean design with consistent styling
+- Responsive layout that works on different screen sizes
+- Beautiful typography with Google Fonts
+- Custom CSS classes for easy formatting:
+  - `.container` and `.col` for two-column layouts
+  - `.highlight-text` for emphasized text
+  - `.bg-header` for styled section headers
+  - `.data-table` for styled tables
+  - `.image-gallery` for image collections
+  - And many more...
+- Before-After image comparison slider
+- Automatic logo placement on slides
+- Presenter notes support (press 'S' during presentation)
+- PDF export capability (add `?print-pdf` to the URL)
+- Special SNU logo background for first and last slides
+- Theme color defined by CSS variables for easy customization
+
+## Customization
+
+- To modify the styling, edit `custom/custom-styles.css`
+- To change the behavior or add new features, edit `custom/custom-scripts.js`
+- To change the overall theme, modify the theme link in `index.html`:
+  ```html
+  <link rel="stylesheet" href="dist/theme/white.css">
+  ```
+- To change the theme color, simply update the CSS variable in `custom/custom-styles.css`:
+  ```css
+  :root {
+    --theme-color: #2a76dd; /* Change this to any color you want */
+  }
+  ```
+
+## For Advanced Users
+
+If you want to further customize the template:
+
+1. Theme color is defined using CSS variables at the top of the CSS file
+2. Additional custom components can be added to the CSS file
+3. Reveal.js initialization options can be modified in the JavaScript file
+4. The first and last slide backgrounds use the SNU logo, which can be replaced with any SVG
+
+## Credits
+
+This template was created by Xianghui Xin for [SNUPHEL](https://snuphel.snu.ac.kr) members.
+
+Built with [Reveal.js](https://revealjs.com) - The HTML Presentation Framework 

@@ -243,7 +243,7 @@ body {
 	opacity: 0.6;
 	font-style: italic;
 	max-width: 1000px;
-	text-align: right;
+	text-align: left;
 	color: #555;
 }
 /* Before-After Comparison Styles */

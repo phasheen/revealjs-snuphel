@@ -89,7 +89,7 @@
 					
 					<section>
 						<h3>Comparison with Other Presentation Tools</h3>
-						<table class="data-table">
+						<table class="data-table" style="width: 87%;">
 							<thead>
 								<tr>
 									<th>Feature</th>
@@ -175,7 +175,7 @@
 									<li>Works across devices with presenter link</li>
 								</ul>
 							</div>	
-							<img src="resources/images/presenter-view.jpg" alt="Presenter View Example">
+							<img src="resources/images/presenter-view.png" alt="Presenter View Example" style="max-width: 50%;">
 							<p class="img-caption">Example of Reveal.js presenter view</p>
 							<div class="slide-citation">Press 'S' during the presentation to try it</div>
 						</div>
@@ -274,10 +274,11 @@ Reveal.initialize({
 				<section>
 					<section>
 						<h2 class="bg-header">Development</h2>
+						<h3>Setting Up Your Environment</h3>
 						<div class="container">
 							<div class="col">
-								<h3>Setting Up Your Environment</h3>
 								<ul>
+									<li>Create a <span class="highlight">NodeJS Workspace</span> in <span class="highlight">Coder</span></li>
 									<li>Clone the template repository</li>
 									<li>Install dependencies with <code>npm install</code></li>
 									<li>Start the dev server with <code>npm start</code></li>
@@ -288,10 +289,10 @@ Reveal.initialize({
 							<div class="col">
 								<pre><code class="bash">
 # Clone the repository
-git clone https://github.com/username/revealjs-template
+git clone https://github.com/phasheen/revealjs-snuphel
 
 # Navigate to the directory
-cd revealjs-template
+cd revealjs-snuphel
 
 # Install dependencies
 npm install
@@ -509,7 +510,7 @@ const sessionName = "Your Presentation Title";</code></pre>
                             </div>
                             <div class="col">
                                 <h4>Share Link:</h4>
-                                <pre><code>https://your-github-pages-url/#/2/3</code></pre>
+                                <pre><code>https://localhost:8000/#/2/3</code></pre>
                             </div>
                         </div>
 					</section>
@@ -519,7 +520,7 @@ const sessionName = "Your Presentation Title";</code></pre>
 							<div class="col">
 								<h3>Why GitHub & Cloudflare?</h3>
 								<ul>
-									<li><span class="highlight">Free hosting</span> for public repositories</li>
+									<li><span class="highlight">Free hosting</span> for Code and websites</li>
 									<li><span class="highlight">Global CDN</span> for fast loading worldwide</li>
 									<li><span class="highlight">Automatic builds</span> from your repository</li>
 									<li><span class="highlight">Custom domains</span> with SSL certificates</li>
@@ -530,6 +531,10 @@ const sessionName = "Your Presentation Title";</code></pre>
 								<img src="resources/images/github-cloudflare.png" alt="GitHub + Cloudflare">
 								<p class="img-caption">GitHub repository connected to Cloudflare Pages</p>
 							</div>
+						</div>
+						<div class="slide-citation">
+							https://github.com/<br>
+							https://pages.cloudflare.com/
 						</div>
 						<aside class="notes">
 							GitHub and Cloudflare Pages offer an excellent free solution for hosting academic presentations, with automatic deployments, version control, and a global CDN.
@@ -571,14 +576,9 @@ git push -u origin main
 							<div class="col">
 								<ol>
 									<li>Sign up for a <a href="https://pages.cloudflare.com/">Cloudflare account</a></li>
+									<li>Go to Workers and Pages->Create a page</li>
 									<li>Connect your GitHub account</li>
 									<li>Select your repository</li>
-									<li>Configure build settings:
-										<ul>
-											<li>Build command: <code>npm run build</code></li>
-											<li>Output directory: <code>dist</code></li>
-										</ul>
-									</li>
 									<li>Deploy!</li>
 								</ol>
 							</div>
