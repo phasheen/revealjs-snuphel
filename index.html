@@ -235,8 +235,15 @@ Reveal.initialize({
 </code></pre>
 							</div>
 							<div class="col">
-								<div>
-									<iframe src="https://3dgs.phasheen.com" width="600" height="400" title="Web Preview"></iframe>
+								<div style="width: 600px; height: 500px; overflow: hidden; position: relative; border-radius: 4px;">
+									<iframe src="https://3dgs.phasheen.com" 
+										width="600" 
+										height="500" 
+										title="Web Preview" 
+										sandbox="allow-scripts allow-same-origin" 
+										scrolling="no"
+										loading="lazy"
+										style="border: none; position: absolute; top: 0; left: 0; width: calc(100% + 10px); height: calc(100% + 10px); transform: translate(-5px, -5px);"></iframe>
 								</div>
 								<p class="img-caption">Example of an embedded webpage</p>
 							</div>
