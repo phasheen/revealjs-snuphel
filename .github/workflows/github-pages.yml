@@ -41,7 +41,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' # Upload the entire project as the site
+          path: './dist' # Upload the build output directory instead of the entire project
 
   deploy:
     environment:
