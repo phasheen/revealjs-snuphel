@@ -24,6 +24,9 @@
 		
 		<!-- HTTPS redirect and presenter info script -->
 		<script src="custom/custom-scripts.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-mermaid-plugin@11.4.1/plugin/mermaid/mermaid.js"></script>
+		<!-- Chart.js for charts -->
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	</head>
 	<body>
 		<div class="reveal"">
@@ -51,9 +54,15 @@
 					<h2 class="bg-header">Presentation Outline</h2>
 					<ol>
 						<li><a href="#/2"><strong>Motivation</strong></a> - Why choose Reveal.js for academic presentations?</li>
-						<li><a href="#/3"><strong>Features</strong></a> - What makes this template special?</li>
+						<li><a href="#/3"><strong>Features</strong></a> - What makes this template special?
+							<ul>
+								<li>Interactive Elements</li>
+								<li>Markdown & LaTeX Support</li>
+								<li>Media & Chart Integration</li>
+							</ul>
+						</li>
 						<li><a href="#/8"><strong>Development</strong></a> - How to create and customize your presentation</li>
-						<li><a href="#/12"><strong>Deployment</strong></a> - Publishing with GitHub & Cloudflare Pages</li>
+						<li><a href="#/12"><strong>Deployment</strong></a> - Publishing with GitHub Pages</li>
 						<li><a href="#/16"><strong>Contributions</strong></a> - How this template was developed</li>
 						<li><a href="#/17"><strong>Discussion</strong></a> - Q&A and future directions</li>
 					</ol>
@@ -185,6 +194,90 @@
 					</section>
 
 					<section>
+						<h3>Math Formulas with KaTeX</h3>
+						<div class="container">
+							<div class="col">
+								<ul>
+									<li>Include RevealMath.KaTeX plugin</li>
+									<li>Write inline math with $\LaTeX$ syntax</li>
+									<li>Create complex equations</li>
+									<li>Renders faster than MathJax</li>
+								</ul>
+							</div>
+							<div class="col">
+								<p>Example equation:</p>
+								<p>$$E = mc^2$$</p>
+								<p>$$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)$$</p>
+								<p class="img-caption">Einstein's theory of relativity and the Fundamental Theorem of Calculus</p>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Markdown Support</h3>
+						<div class="container">
+							<div class="col">
+								<table class="data-table">
+									<thead>
+										<tr>
+											<th>Feature</th>
+											<th>HTML</th>
+											<th>Markdown</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Headers</td>
+											<td>&lt;h1&gt;...&lt;/h1&gt;</td>
+											<td class="highlight-cell"># Header</td>
+										</tr>
+										<tr>
+											<td>Lists</td>
+											<td>&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;</td>
+											<td class="highlight-cell">* Item</td>
+										</tr>
+										<tr>
+											<td>Links</td>
+											<td>&lt;a href="..."&gt;...&lt;/a&gt;</td>
+											<td class="highlight-cell">[text](url)</td>
+										</tr>
+										<tr>
+											<td>Images</td>
+											<td>&lt;img src="..." alt="..."&gt;</td>
+											<td class="highlight-cell">![alt](url)</td>
+										</tr>
+										<tr>
+											<td>Code</td>
+											<td>&lt;pre&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;</td>
+											<td class="highlight-cell">```lang code```</td>
+										</tr>
+									</tbody>
+								</table>
+								<p class="smalltext">Write slides in Markdown for faster content creation</p>
+							</div>
+							<div class="col">
+								<pre><code class="html">&lt;section data-markdown&gt;
+  &lt;textarea data-template&gt;
+    # Slide Title
+    
+    * Bullet point 1
+    * Bullet point 2
+    
+    ---
+    
+    ## Next Slide
+    
+    ```javascript
+    let code = "highlighted";
+    ```
+  &lt;/textarea&gt;
+&lt;/section&gt;</code></pre>
+							</div>
+						</div>
+						<div class="slide-citation">Let me tell you a secret: this is a format that notion can export to(You know what I mean zz?).</div>
+					</section>
+
+					<section>
 						<h3>Interactive Code Examples</h3>
 						<div class="container">
 							<div class="col">
@@ -245,7 +338,6 @@ Reveal.initialize({
 										loading="lazy"
 										style="border: none; position: absolute; top: 0; left: 0; width: calc(100% + 10px); height: calc(100% + 10px); transform: translate(-5px, -5px);"></iframe>
 								</div>
-								<p class="img-caption">Example of an embedded webpage</p>
 							</div>
 						</div>
 						<div class="slide-citation">https://3dgs.phasheen.com</div>
@@ -253,7 +345,161 @@ Reveal.initialize({
 							Embedding web content directly in your slides is a powerful feature, allowing you to include interactive demos, websites, and web-based tools directly in your presentation.
 						</aside>
 					</section>
-					
+
+					<section>
+						<h3>Media: Video Support</h3>
+						<div class="container">
+							<div class="col">
+								<ul>
+									<li><span class="highlight">Native HTML5 video</span> support</li>
+									<li>Easily <span class="highlight">embed video</span> in your presentations</li>
+									<li>Controls for <span class="highlight">playback</span></li>
+									<li>Video can be <span class="highlight">paused</span> during presentations</li>
+									<li>Perfect for <span class="highlight">demos</span> and tutorials</li>
+								</ul>
+								<pre><code class="html">
+&lt;video 
+  data-autoplay 
+  src="path/to/video.mp4" 
+  controls
+&gt;&lt;/video&gt;
+</code></pre>
+							</div>
+							<div class="col">
+								<video 
+									width="640" 
+									height="360" 
+									controls
+									src="resources/videos/Codebase-understadning.mov"
+									type="video/mp4">
+									Your browser does not support the video tag.
+								</video>
+								<p class="img-caption">Example of embedded video in Reveal.js</p>
+							</div>
+						</div>
+						<aside class="notes">
+							Video support in Reveal.js is excellent, allowing you to embed videos directly in your slides. This is perfect for demonstrations, tutorials, or any content that benefits from motion and sound.
+						</aside>
+					</section>
+
+					<section>
+						<h3>Plugins: Chart</h3>
+						<div class="container">
+							<div class="col">
+								<ul>
+									<li>Create <span class="highlight">dynamic charts</span> in your presentations</li>
+									<li>Based on <span class="highlight">Chart.js</span> library</li>
+									<li>Support for <span class="highlight">line</span>, <span class="highlight">bar</span>, <span class="highlight">pie</span> charts and more</li>
+									<li>Interactive with <span class="highlight">hover</span> effects</li>
+									<li>Customize colors, labels, and animations</li>
+								</ul>
+							</div>
+							<div class="col">
+								<canvas id="myChart" width="400" height="300"></canvas>
+								<script>
+									document.addEventListener('DOMContentLoaded', function() {
+										Reveal.addEventListener('slidechanged', function(event) {
+											if (event.currentSlide.querySelector('#myChart')) {
+												const ctx = document.getElementById('myChart').getContext('2d');
+												new Chart(ctx, {
+													type: 'bar',
+													data: {
+														labels: ['HTML', 'CSS', 'JavaScript', 'Python', 'Java', 'C++'],
+														datasets: [{
+															label: 'Programming Languages Popularity',
+															data: [85, 80, 90, 75, 60, 50],
+															backgroundColor: [
+																'rgba(255, 99, 132, 0.5)',
+																'rgba(54, 162, 235, 0.5)',
+																'rgba(255, 206, 86, 0.5)',
+																'rgba(75, 192, 192, 0.5)',
+																'rgba(153, 102, 255, 0.5)',
+																'rgba(255, 159, 64, 0.5)'
+															],
+															borderColor: [
+																'rgba(255, 99, 132, 1)',
+																'rgba(54, 162, 235, 1)',
+																'rgba(255, 206, 86, 1)',
+																'rgba(75, 192, 192, 1)',
+																'rgba(153, 102, 255, 1)',
+																'rgba(255, 159, 64, 1)'
+															],
+															borderWidth: 1
+														}]
+													},
+													options: {
+														responsive: true,
+														scales: {
+															y: {
+																beginAtZero: true
+															}
+														}
+													}
+												});
+											}
+										});
+									});
+								</script>
+								<p class="img-caption">Example of Chart.js integration</p>
+							</div>
+						</div>
+						<div class="slide-citation">https://www.chartjs.org/</div>
+						<aside class="notes">
+							The Chart plugin allows you to create beautiful, interactive charts directly in your presentation. It's powered by Chart.js, a powerful JavaScript library for data visualization.
+						</aside>
+					</section>
+
+					<section>
+						<h3>Plugins: Mermaid</h3>
+						<div class="container">
+							<div class="col">
+								<ul>
+									<li><span class="highlight">Open protocol</span> that standardizes how applications provide context to LLMs</li>
+									<li>Acts like a <span class="highlight">USB-C port for AI</span> applications</li>
+									<li>Connects AI models to <span class="fragment highlight-blue" data-fragment-index="1"><strong>data sources and tools</strong></span></li>
+									<li>Enables <span class="highlight">switching between LLM providers</span></li>
+									<li>Ensures <span class="highlight">data security</span> within your infrastructure</li>
+								</ul>
+							</div>
+							<div class="col">
+								<div class="mermaid">
+									<pre>
+flowchart LR
+  %% Define a reusable class for consistent styling
+  classDef common fill:#e0e0ff,stroke:#4b0082,stroke-width:1px,color:#000080;
+
+  subgraph "Your Computer"
+    direction TB
+    client["Host with MCP Client<br>(Claude, IDEs, Tools)"]:::common
+
+    subgraph "MCP Servers"
+      direction LR
+      A["MCP Server A"]:::common --> DataA[(Local Data Source A)]:::common
+      B["MCP Server B"]:::common --> DataB[(Local Data Source B)]:::common
+      C["MCP Server C"]:::common --> Web[(Web APIs)]:::common
+    end
+  end
+
+  subgraph Internet
+    Remote[(Remote Service C)]:::common
+  end
+
+  client -->|MCP Protocol| A
+  client -->|MCP Protocol| B
+  client -->|MCP Protocol| C
+
+  DataA --> A
+  DataB --> B
+  Web   --> Remote
+									</pre>
+								</div>
+								<p class="img-caption">MCP architecture overview</p>
+							</div>
+						</div>
+						<aside class="notes">
+							The Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to LLMs. Think of MCP like a USB-C port for AI applications - just as USB-C provides a standardized way to connect devices to peripherals, MCP provides a standardized way to connect AI models to data sources and tools.
+						</aside>
+					</section>
 					<section>
 						<h3>Customized feature:Before-After Slider</h3>
 						<div class="bal-container-small" id="image-comparison" style="margin-top: 30px;">
@@ -375,90 +621,6 @@ const sessionName = "Your Presentation Title";</code></pre>
 					</section>
 
 					<section>
-						<h3>Math Formulas with KaTeX</h3>
-						<div class="container">
-							<div class="col">
-								<ul>
-									<li>Include RevealMath.KaTeX plugin</li>
-									<li>Write inline math with $\LaTeX$ syntax</li>
-									<li>Create complex equations</li>
-									<li>Renders faster than MathJax</li>
-								</ul>
-							</div>
-							<div class="col">
-								<p>Example equation:</p>
-								<p>$$E = mc^2$$</p>
-								<p>$$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)$$</p>
-								<p class="img-caption">Einstein's theory of relativity and the Fundamental Theorem of Calculus</p>
-							</div>
-						</div>
-					</section>
-
-					<section>
-						<h3>Markdown Support</h3>
-						<div class="container">
-							<div class="col">
-								<table class="data-table">
-									<thead>
-										<tr>
-											<th>Feature</th>
-											<th>HTML</th>
-											<th>Markdown</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Headers</td>
-											<td>&lt;h1&gt;...&lt;/h1&gt;</td>
-											<td class="highlight-cell"># Header</td>
-										</tr>
-										<tr>
-											<td>Lists</td>
-											<td>&lt;ul&gt;&lt;li&gt;...&lt;/li&gt;&lt;/ul&gt;</td>
-											<td class="highlight-cell">* Item</td>
-										</tr>
-										<tr>
-											<td>Links</td>
-											<td>&lt;a href="..."&gt;...&lt;/a&gt;</td>
-											<td class="highlight-cell">[text](url)</td>
-										</tr>
-										<tr>
-											<td>Images</td>
-											<td>&lt;img src="..." alt="..."&gt;</td>
-											<td class="highlight-cell">![alt](url)</td>
-										</tr>
-										<tr>
-											<td>Code</td>
-											<td>&lt;pre&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;</td>
-											<td class="highlight-cell">```lang code```</td>
-										</tr>
-									</tbody>
-								</table>
-								<p class="smalltext">Write slides in Markdown for faster content creation</p>
-							</div>
-							<div class="col">
-								<pre><code class="html">&lt;section data-markdown&gt;
-  &lt;textarea data-template&gt;
-    # Slide Title
-    
-    * Bullet point 1
-    * Bullet point 2
-    
-    ---
-    
-    ## Next Slide
-    
-    ```javascript
-    let code = "highlighted";
-    ```
-  &lt;/textarea&gt;
-&lt;/section&gt;</code></pre>
-							</div>
-						</div>
-						<div class="slide-citation">Let me tell you a secret: this is a format that notion can export to(You know what I mean zz?).</div>
-					</section>
-					
-					<section>
 						<h3>Fragment Animations</h3>
 						<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px;">
 							<div>
@@ -522,40 +684,40 @@ const sessionName = "Your Presentation Title";</code></pre>
                         </div>
 					</section>
 					<section>
-						<h2 class="bg-header">Deployment with GitHub & Cloudflare Pages</h2>
+						<h2 class="bg-header">Deployment with GitHub Pages</h2>
 						<div class="container">
 							<div class="col">
-								<h3>Why GitHub & Cloudflare?</h3>
+								<h3>Why GitHub Pages?</h3>
 								<ul>
-									<li><span class="highlight">Free hosting</span> for Code and websites</li>
-									<li><span class="highlight">Global CDN</span> for fast loading worldwide</li>
-									<li><span class="highlight">Automatic builds</span> from your repository</li>
+									<li><span class="highlight">Free hosting</span> for your presentations</li>
+									<li><span class="highlight">Integrated with Git</span> workflows</li>
+									<li><span class="highlight">Automatic builds</span> with GitHub Actions</li>
 									<li><span class="highlight">Custom domains</span> with SSL certificates</li>
-									<li><span class="highlight">Version control</span> for all changes</li>
+									<li><span class="highlight">Easy collaboration</span> with teammates</li>
 								</ul>
 							</div>
 							<div class="col">
-								<img src="resources/images/github-cloudflare.png" alt="GitHub + Cloudflare">
-								<p class="img-caption">GitHub repository connected to Cloudflare Pages</p>
+								<img src="resources/images/github-cloudflare.png" alt="GitHub Pages">
+								<p class="img-caption">GitHub Pages deployment overview</p>
 							</div>
 						</div>
 						<div class="slide-citation">
-							https://github.com/<br>
-							https://pages.cloudflare.com/<br>
-							https://bejamas.com/compare/cloudflare-pages-vs-github-pages
+							https://pages.github.com/<br>
+							https://docs.github.com/en/pages
 						</div>
 						<aside class="notes">
-							GitHub and Cloudflare Pages offer an excellent free solution for hosting academic presentations, with automatic deployments, version control, and a global CDN.
+							GitHub Pages offers an excellent free solution for hosting academic presentations, with automatic deployments through GitHub Actions, version control, and easy sharing.
 						</aside>
 					</section>
 
 					<section>
-						<h3>GitHub Setup</h3>
+						<h3>GitHub Pages Setup</h3>
 						<ol>
 							<li>Create a new GitHub repository</li>
 							<li>Push your presentation files to the repository</li>
-							<li>Ensure your repository is public (or use GitHub Pro)</li>
-							<li>Update your repository settings to allow Pages deployment</li>
+							<li>Go to repository Settings → Pages</li>
+							<li>Set source to "GitHub Actions"</li>
+							<li>The included workflow file will handle deployment automatically</li>
 						</ol>
 						<pre><code class="bash">
 # Initialize git in your project folder
@@ -574,29 +736,57 @@ git remote add origin https://github.com/username/my-presentation.git
 git push -u origin main
 </code></pre>
 						<aside class="notes">
-							Setting up your presentation in GitHub is straightforward, especially if you're already familiar with Git. The key is to have a well-organized repository that includes all necessary files.
+							Setting up your presentation in GitHub is straightforward. The template already includes a GitHub Actions workflow file that will automatically deploy your presentation to GitHub Pages whenever you push changes to the repository.
 						</aside>
 					</section>
 
 					<section>
-						<h3>Cloudflare Pages Setup</h3>
+						<h3>GitHub Actions Workflow</h3>
 						<div class="container">
 							<div class="col">
-								<ol>
-									<li>Sign up for a <a href="https://pages.cloudflare.com/">Cloudflare account</a></li>
-									<li>Go to Workers and Pages->Create a page</li>
-									<li>Connect your GitHub account</li>
-									<li>Select your repository</li>
-									<li>Deploy!</li>
-								</ol>
+								<ul>
+									<li>Included in the template as <code>.github/workflows/github-pages.yml</code></li>
+									<li>Automatically deploys on push to main branch</li>
+									<li>No configuration needed</li>
+									<li>Fast deployment (usually less than a minute)</li>
+								</ul>
 							</div>
 							<div class="col">
-								<img src="resources/images/cloudflare-config.png" alt="Cloudflare Configuration">
-								<p class="img-caption">Cloudflare Pages project configuration</p>
+								<pre><code class="yaml">
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+</code></pre>
 							</div>
 						</div>
 						<aside class="notes">
-							Cloudflare Pages provides a simple interface for connecting to your GitHub repository and automatically deploying your presentation whenever you push changes.
+							The GitHub Actions workflow file is already configured to deploy your presentation to GitHub Pages. It will automatically run whenever you push changes to the main branch of your repository.
 						</aside>
 					</section>
 
@@ -605,25 +795,24 @@ git push -u origin main
 						<div class="container">
 							<div class="col">
 								<ol>
-									<li>In Cloudflare Pages, go to your project settings</li>
-									<li>Select "Custom domains" tab</li>
-									<li>Add your domain (e.g., <code>slides.yourdomain.com</code>)</li>
-									<li>Configure DNS records</li>
-									<li>Automatic SSL certificate provisioning</li>
-									<li>Wait for propagation (~24 hours)</li>
+									<li>In your repository, go to Settings → Pages</li>
+									<li>Under "Custom domain", enter your domain</li>
+									<li>Configure your DNS provider with a CNAME record</li>
+									<li>GitHub will automatically provision an SSL certificate</li>
+									<li>Your presentation will be available at your custom domain</li>
 								</ol>
 							</div>
 							<div class="col">
 								<pre><code class="text">
 # Example DNS configuration
-Type    Name               Content
-CNAME   slides             pages.cloudflare.com
+Type    Name               Value
+CNAME   slides             username.github.io
 </code></pre>
 								<p class="img-caption">Example DNS configuration for custom domain</p>
 							</div>
 						</div>
 						<aside class="notes">
-							Adding a custom domain makes your presentation look more professional and easier to remember. Cloudflare handles SSL certificates automatically for secure connections.
+							Adding a custom domain makes your presentation look more professional and easier to remember. GitHub Pages handles SSL certificates automatically for secure connections.
 						</aside>
 					</section>
 				</section>
@@ -725,8 +914,8 @@ CNAME   slides             pages.cloudflare.com
 						<li><a href="https://revealjs.com/demo/">https://revealjs.com/demo/</a></li>
 						<li><a href="https://johnguerra.co/slides/untanglingTheHairball">https://johnguerra.co/slides/untanglingTheHairball</a></li>
 						<li><a href="https://legends2k.github.io/2d-transforms-101">https://legends2k.github.io/2d-transforms-101</a></li>
-						<li><a href="https://revealjs.com/custom-plugins/">https://revealjs.com/custom-plugins/</a></li>
-						<li><a href="https://revealjs.com/custom-themes/">https://revealjs.com/custom-themes/</a></li>
+						<li><a href="https://zjffun.github.io/reveal.js-mermaid-plugin">https://zjffun.github.io/reveal.js-mermaid-plugin</a></li>
+						<li><a href="https://kslides.com"https://kslides.com</a></li>
 					</ul>
 				</section>
 
