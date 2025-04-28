@@ -148,6 +148,13 @@ body {
 	pointer-events: none;
 	font-family: 'Lato', sans-serif!important;
 }
+
+/* Position logo at the top specifically for some slide */
+#top-right-logo .logo {
+	bottom: auto;
+	top: 50px;
+}
+
 .logo:hover {
 	transform: none !important;
 	box-shadow: none !important;

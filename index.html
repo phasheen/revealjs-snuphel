@@ -14,7 +14,7 @@
 		<!-- Core Reveal.js styles -->
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/white.css">
+		<link rel="stylesheet" href="dist/theme/sky.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -49,18 +49,41 @@
 					</aside>
 				</section>
 
+				<!-- Navigation Instructions -->
+				<section>
+					<h2 class="bg-header">Navigation Tips</h2>
+					<div class="container">
+						<div class="col">
+							<h3>Keyboard Controls</h3>
+							<ul>
+								<li><span class="highlight">Space / Arrow keys</span> - Navigate slides</li>
+								<li><span class="highlight">S</span> - Speaker notes view</li>
+								<li><span class="highlight">O or ESC</span> - Overview mode</li>
+								<li><span class="highlight">Alt + Click</span> - Zoom in</li>
+								<li><span class="highlight">F</span> - Fullscreen</li>
+								<li><span class="highlight">B or .</span> - Pause (blackout)</li>
+							</ul>
+						</div>
+						<div class="col">
+							<div class="alert" style="background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; border-radius: 5px;">
+								<h3 style="color: #856404; margin-top: 0;"><strong>Important!</strong></h3>
+								<p>Use <span class="highlight-text">spacebar</span> to navigate to ensure you don't miss vertical slides.</p>
+								<p>This presentation uses <span class="highlight-text">vertical slides</span> - look for the down arrow ↓</p>
+							</div>
+							<p class="img-caption">Try pressing 'O' now to see the overview of all slides</p>
+						</div>
+					</div>
+					<aside class="notes">
+						Before we begin, let me quickly explain how to navigate this presentation. Reveal.js offers several useful navigation features that enhance the viewing experience.
+					</aside>
+				</section>
+
 				<!-- Table of Contents slide -->
 				<section>
 					<h2 class="bg-header">Presentation Outline</h2>
 					<ol>
 						<li><a href="#/2"><strong>Motivation</strong></a> - Why choose Reveal.js for academic presentations?</li>
-						<li><a href="#/3"><strong>Features</strong></a> - What makes this template special?
-							<ul>
-								<li>Interactive Elements</li>
-								<li>Markdown & LaTeX Support</li>
-								<li>Media & Chart Integration</li>
-							</ul>
-						</li>
+						<li><a href="#/3"><strong>Features</strong></a> - What makes this template special?</li>
 						<li><a href="#/8"><strong>Development</strong></a> - How to create and customize your presentation</li>
 						<li><a href="#/12"><strong>Deployment</strong></a> - Publishing with GitHub Pages</li>
 						<li><a href="#/16"><strong>Contributions</strong></a> - How this template was developed</li>
@@ -370,9 +393,8 @@ Reveal.initialize({
 									width="640" 
 									height="360" 
 									controls
-									src="resources/videos/Codebase-understadning.mov"
+									src="resources/videos/cursor-rule.mov"
 									type="video/mp4">
-									Your browser does not support the video tag.
 								</video>
 								<p class="img-caption">Example of embedded video in Reveal.js</p>
 							</div>
@@ -454,11 +476,11 @@ Reveal.initialize({
 						<div class="container">
 							<div class="col">
 								<ul>
-									<li><span class="highlight">Open protocol</span> that standardizes how applications provide context to LLMs</li>
-									<li>Acts like a <span class="highlight">USB-C port for AI</span> applications</li>
-									<li>Connects AI models to <span class="fragment highlight-blue" data-fragment-index="1"><strong>data sources and tools</strong></span></li>
-									<li>Enables <span class="highlight">switching between LLM providers</span></li>
-									<li>Ensures <span class="highlight">data security</span> within your infrastructure</li>
+									<li>Create <span class="highlight">diagrams and flowcharts</span> using text definitions</li>
+									<li>Supports <span class="highlight">multiple diagram types</span>: flowcharts, sequence, class, etc.</li>
+									<li>Renders <span class="fragment highlight-blue" data-fragment-index="1"><strong>beautiful SVG diagrams</strong></span> dynamically</li>
+									<li>Simple <span class="highlight">text-based syntax</span> similar to Markdown</li>
+									<li>Perfect for <span class="highlight">visualizing processes</span> and relationships</li>
 								</ul>
 							</div>
 							<div class="col">
@@ -497,7 +519,7 @@ flowchart LR
 							</div>
 						</div>
 						<aside class="notes">
-							The Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to LLMs. Think of MCP like a USB-C port for AI applications - just as USB-C provides a standardized way to connect devices to peripherals, MCP provides a standardized way to connect AI models to data sources and tools.
+							Mermaid makes it easy to generate diagrams and visualizations using a simple markdown-like syntax. This is especially useful for technical presentations where you need to show architecture, processes, or relationships between components.
 						</aside>
 					</section>
 					<section>
@@ -683,6 +705,8 @@ const sessionName = "Your Presentation Title";</code></pre>
                             </div>
                         </div>
 					</section>
+				</section>
+				<section>
 					<section>
 						<h2 class="bg-header">Deployment with GitHub Pages</h2>
 						<div class="container">
@@ -697,7 +721,7 @@ const sessionName = "Your Presentation Title";</code></pre>
 								</ul>
 							</div>
 							<div class="col">
-								<img src="resources/images/github-cloudflare.png" alt="GitHub Pages">
+								<img src="resources/images/github-pages.png" alt="GitHub Pages">
 								<p class="img-caption">GitHub Pages deployment overview</p>
 							</div>
 						</div>
@@ -710,7 +734,7 @@ const sessionName = "Your Presentation Title";</code></pre>
 						</aside>
 					</section>
 
-					<section>
+					<section id="top-right-logo">
 						<h3>GitHub Pages Setup</h3>
 						<ol>
 							<li>Create a new GitHub repository</li>
@@ -739,7 +763,7 @@ git push -u origin main
 							Setting up your presentation in GitHub is straightforward. The template already includes a GitHub Actions workflow file that will automatically deploy your presentation to GitHub Pages whenever you push changes to the repository.
 						</aside>
 					</section>
-
+					
 					<section>
 						<h3>GitHub Actions Workflow</h3>
 						<div class="container">
@@ -789,32 +813,65 @@ jobs:
 							The GitHub Actions workflow file is already configured to deploy your presentation to GitHub Pages. It will automatically run whenever you push changes to the main branch of your repository.
 						</aside>
 					</section>
-
+					
 					<section>
-						<h3>Custom Domain Setup</h3>
-						<div class="container">
-							<div class="col">
-								<ol>
-									<li>In your repository, go to Settings → Pages</li>
-									<li>Under "Custom domain", enter your domain</li>
-									<li>Configure your DNS provider with a CNAME record</li>
-									<li>GitHub will automatically provision an SSL certificate</li>
-									<li>Your presentation will be available at your custom domain</li>
-								</ol>
-							</div>
-							<div class="col">
-								<pre><code class="text">
-# Example DNS configuration
-Type    Name               Value
-CNAME   slides             username.github.io
-</code></pre>
-								<p class="img-caption">Example DNS configuration for custom domain</p>
-							</div>
+						<h3>GitHub Pages Deployment Flow</h3>
+						<div class="mermaid">
+							<pre>
+
+								flowchart LR
+								%% Style definitions
+								classDef local      fill:#f5f5f5,stroke:#333,stroke-width:1px,stroke-dasharray:5 5
+								classDef githubRepo fill:#e0f7fa,stroke:#0288d1,stroke-width:1px
+								classDef trigger    fill:#fff3e0,stroke:#fb8c00,stroke-width:1px
+								classDef job        fill:#e8f5e9,stroke:#2e7d32,stroke-width:1px
+								classDef pages      fill:#ede7f6,stroke:#5e35b1,stroke-width:1px
+								classDef user       fill:#e8f5e9,stroke:#33691e,stroke-width:1px
+							  
+								subgraph "Local Development"
+								  direction TB
+								  A1["Edit slides (MD/HTML)"]:::local
+								  A2["Preview locally (live server)"]:::local
+								  A3["Commit & push to origin/main"]:::local
+								  A1 --> A2 --> A3
+								end
+							  
+								subgraph "GitHub Repository & Triggers"
+								  direction TB
+								  B1["Repo: revealjs-demo (main)"]:::githubRepo
+								  B2["Event: push/pull_request"]:::trigger
+								  B1 --> B2
+								end
+							  
+								subgraph "GitHub Actions Workflow"
+								  direction LR
+								  T1["Checkout code and setup"]:::job
+								  T2["Build and test"]:::job
+								  T3["Deploy to gh-pages"]:::job
+								  T4["Cleanup workspace"]:::job
+								  B2 --> T1 --> T2 --> T3 --> T4
+								end
+							  
+								subgraph "Publishing"
+								  direction TB
+								  B3["Branch: gh-pages"]:::githubRepo
+								  T3 --> B3
+								  P["GitHub Pages site"]:::pages
+								  B3 --> P --> U["👀 Viewers"]:::user
+								end
+							  
+								%% Layout hint for 16:9
+								class Local_Development,Github_Repository_Triggers,GitHub_Actions_Workflow,Publishing internal;
+							  
+							</pre>
 						</div>
+						<p class="img-caption">GitHub Pages automatic deployment workflow</p>
+						<div class="slide-citation">You can create this kind of diagram with AI easily~</div>
 						<aside class="notes">
-							Adding a custom domain makes your presentation look more professional and easier to remember. GitHub Pages handles SSL certificates automatically for secure connections.
+							This diagram shows the complete workflow from local development to deployment on GitHub Pages. The process is fully automated once you push your changes, making it easy to keep your presentation up-to-date.
 						</aside>
 					</section>
+
 				</section>
 
 				<!-- 6. Contributions Section -->
@@ -855,7 +912,7 @@ CNAME   slides             username.github.io
 					</aside>
 					</section>
 					<section>
-						<h3>Don't like this logo? Design your own!</h3>
+						<h3>Don't like the logo? Design your own!</h3>
                         <iframe src="https://svgedit.netlify.app/editor/index.html" width="100%" height="600px"></iframe>
                         <div class="slide-citation">
                             Online SVG Editor: https://svgedit.netlify.app/editor/index.html
@@ -907,16 +964,6 @@ CNAME   slides             username.github.io
 					<aside class="notes">
 						While this template offers significant advantages over traditional presentation tools, there's still room for improvement. Future enhancements will focus on making it even more useful for academic presentations across different disciplines.
 					</aside>
-				</section>
-				<section>
-					<h3>More Demos of Reveal.js</h3>
-					<ul>
-						<li><a href="https://revealjs.com/demo/">https://revealjs.com/demo/</a></li>
-						<li><a href="https://johnguerra.co/slides/untanglingTheHairball">https://johnguerra.co/slides/untanglingTheHairball</a></li>
-						<li><a href="https://legends2k.github.io/2d-transforms-101">https://legends2k.github.io/2d-transforms-101</a></li>
-						<li><a href="https://zjffun.github.io/reveal.js-mermaid-plugin">https://zjffun.github.io/reveal.js-mermaid-plugin</a></li>
-						<li><a href="https://kslides.com"https://kslides.com</a></li>
-					</ul>
 				</section>
 
 				<!-- 8. Thank You Slide -->
